@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner Sheet | AI Strategy US</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      color-scheme: light only;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #ffffff !important;
+      color: #1a2033 !important;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    :root {
+      --dark:    #0E1525;
+      --dark-2:  #14203A;
+      --blue:    #2563EB;
+      --gold:    #C09A3E;
+      --green:   #34D399;
+      --border:  #E2E6EF;
+      --light:   #F5F6F9;
+      --muted:   #4B5563;
+    }
+
+    /* ===========================
+       PAGE SHELL
+    =========================== */
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 40px 64px;
+    }
+
+    /* ===========================
+       HEADER / COVER
+    =========================== */
+    .sheet-header {
+      background: var(--dark);
+      border-radius: 10px;
+      padding: 36px 36px 32px;
+      margin-bottom: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sheet-header::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .sheet-header::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(192,154,62,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-inner { position: relative; z-index: 2; }
+
+    .brand {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .sheet-header h1 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .sheet-header .tagline {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    .header-meta {
+      display: flex;
+      gap: 24px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    .header-meta span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-meta span::before {
+      content: '';
+      display: inline-block;
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    /* ===========================
+       CONFIDENTIAL NOTICE
+    =========================== */
+    .confidential-bar {
+      background: rgba(192,154,62,0.07);
+      border: 1px solid rgba(192,154,62,0.2);
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-size: 0.75rem;
+      color: #92700a;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ===========================
+       SECTIONS
+    =========================== */
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section h2 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .section p {
+      font-size: 0.89rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 32px 0;
+    }
+
+    /* ===========================
+       OVERVIEW BOX
+    =========================== */
+    .overview-box {
+      background: var(--light);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 20px;
+      margin-bottom: 10px;
+    }
+
+    .overview-box p {
+      font-size: 0.89rem;
+      color: #374151;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    /* ===========================
+       MODEL CARDS
+    =========================== */
+    .models-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .model-row {
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      overflow: hidden;
+    }
+
+    .model-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--dark-2);
+    }
+
+    .model-num-badge {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .model-row.tier-1 .model-num-badge { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+    .model-row.tier-2 .model-num-badge { background: rgba(37,99,235,0.25);   color: #93c5fd; }
+    .model-row.tier-3 .model-num-badge { background: rgba(192,154,62,0.2);   color: var(--gold); }
+
+    .model-header-text h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+      letter-spacing: -0.01em;
+    }
+
+    .model-header-text span {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .model-row.tier-1 .model-header-text span { color: rgba(255,255,255,0.3); }
+    .model-row.tier-2 .model-header-text span { color: rgba(147,197,253,0.7); }
+    .model-row.tier-3 .model-header-text span { color: rgba(192,154,62,0.75); }
+
+    .model-body {
+      padding: 16px 18px;
+      background: #fff;
+    }
+
+    .model-body p {
+      font-size: 0.855rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .model-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .model-list li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .model-list li::before {
+      content: '✓';
+      color: #059669;
+      font-weight: 700;
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      margin-top: 1px;
+    }
+
+    /* ===========================
+       SCORING TABLE
+    =========================== */
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .score-item {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 12px 12px 10px;
+      text-align: center;
+    }
+
+    .score-item .score-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .score-item .score-range {
+      font-size: 0.68rem;
+      color: var(--blue);
+      font-weight: 600;
+    }
+
+    /* ===========================
+       PROCESS LIST
+    =========================== */
+    .process-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .process-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .process-num {
+      width: 22px; height: 22px;
+      min-width: 22px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 800;
+      margin-top: 1px;
+    }
+
+    .process-text {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .process-text strong {
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    /* ===========================
+       IDEAL PARTNER / CRITERIA
+    =========================== */
+    .criteria-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .criteria-list li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .criteria-list li .ci {
+      flex-shrink: 0;
+      font-style: normal;
+      margin-top: 1px;
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+
+    .criteria-list li.good .ci { color: #059669; font-weight: 700; }
+    .criteria-list li.bad  .ci { color: #dc2626; font-weight: 700; }
+
+    .criteria-list li .ci-text { line-height: 1.55; }
+
+    /* ===========================
+       EXPECTATIONS TABLE
+    =========================== */
+    .expect-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .expect-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .expect-card h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 7px;
+      letter-spacing: -0.01em;
+    }
+
+    .expect-card p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ===========================
+       NEXT STEPS
+    =========================== */
+    .next-steps-box {
+      background: var(--dark);
+      border-radius: 10px;
+      padding: 28px 28px 24px;
+    }
+
+    .next-steps-box h2 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .next-steps-box p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .next-steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .next-steps-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.55;
+    }
+
+    .next-steps-list li::before {
+      content: '→';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .booking-placeholder {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-decoration: none;
+      /* [PLACEHOLDER] Replace href with booking/calendar link when available */
+    }
+
+    .booking-note {
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.22);
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    .sheet-footer {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .sheet-footer .brand-footer {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .sheet-footer .brand-footer .accent { color: var(--gold); }
+
+    .sheet-footer .footer-note {
+      font-size: 0.75rem;
+      color: #9CA3AF;
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    /* ===========================
+       PRINT STYLES
+    =========================== */
+    @media print {
+      body { font-size: 12px; }
+      .page { padding: 0; max-width: 100%; }
+
+      .sheet-header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: #0E1525 !important;
+        border-radius: 6px;
+      }
+
+      .model-header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: #14203A !important;
+      }
+
+      .next-steps-box {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: #0E1525 !important;
+        border-radius: 6px;
+      }
+
+      .section { page-break-inside: avoid; }
+      .model-row { page-break-inside: avoid; }
+      .expect-grid { page-break-inside: avoid; }
+
+      @page {
+        margin: 18mm 16mm;
+        size: letter portrait;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page { padding: 28px 20px 48px; }
+      .expect-grid { grid-template-columns: 1fr; }
+      .sheet-footer { flex-direction: column; align-items: flex-start; }
+      .sheet-footer .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER HEADER -->
+  <div class="sheet-header">
+    <div class="header-inner">
+      <div class="brand">AI Strategy US, LLC &nbsp;·&nbsp; Partner Program</div>
+      <h1>Partner Sheet</h1>
+      <p class="tagline">An overview of our collaboration models, expectations, and what it means to work with us.</p>
+      <div class="header-meta">
+        <span>Confidential</span>
+        <span>For Partner Use Only</span>
+        <span>Not for Distribution</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIDENTIAL NOTICE -->
+  <div class="confidential-bar">
+    ⚠ &nbsp; Confidential — This document is intended solely for the recipient. Please do not share, forward, or distribute.
+  </div>
+
+
+  <!-- SECTION 1: ABOUT -->
+  <div class="section">
+    <span class="section-eyebrow">About Us</span>
+    <h2>Who We Are</h2>
+    <div class="overview-box">
+      <p>AI Strategy US, LLC is a consulting firm based in Nashville, Tennessee. We work directly with small business owners and operators across the United States to identify where AI can meaningfully improve how they run their business — and to build a clear, practical plan to get there.</p>
+    </div>
+    <p>Our focus is on practical outcomes, not theoretical strategy. We serve business owners and the managers running key workflows — people who need real solutions, not enterprise-level complexity. We generate consistent inbound demand from SMBs actively seeking AI guidance, and we partner with full-service agencies and implementation teams to ensure those clients get the delivery they need.</p>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- SECTION 2: WHO THIS IS FOR -->
+  <div class="section">
+    <span class="section-eyebrow">Partner Fit</span>
+    <h2>Who This Program Is For</h2>
+    <p>We partner exclusively with full-service AI consulting agencies and implementation teams that can handle a client engagement from start to finish. This program is not designed for single-product vendors, SaaS resellers, or teams that only deliver one piece of an engagement.</p>
+
+    <ul class="criteria-list" style="margin-top: 12px;">
+      <li class="good"><span class="ci">✓</span> Full-service AI consulting agencies with end-to-end capability</li>
+      <li class="good"><span class="ci">✓</span> Engineering and implementation teams that deliver complete AI projects</li>
+      <li class="good"><span class="ci">✓</span> Teams experienced in discovery, scoping, build, integration, and ongoing support</li>
+      <li class="good"><span class="ci">✓</span> Agencies with a track record serving small and mid-size businesses</li>
+      <li class="good"><span class="ci">✓</span> Teams with current availability and capacity to take on new work</li>
+    </ul>
+
+    <p style="margin-top: 14px;"><strong style="color: var(--dark);">Outside current scope:</strong> Healthcare providers, private equity-backed companies, and businesses in heavily regulated industries require specialized compliance knowledge that falls outside our current operating model. We do not refer clients in these categories at this time.</p>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- SECTION 3: COLLABORATION MODELS -->
+  <div class="section">
+    <span class="section-eyebrow">How We Work Together</span>
+    <h2>Three Collaboration Models</h2>
+    <p>Partners can participate in one or all three models depending on their capacity and preference. Commercial terms are negotiated case-by-case based on involvement, client scope, and delivery model.</p>
+
+    <div class="models-stack" style="margin-top: 16px;">
+
+      <!-- Model 1 -->
+      <div class="model-row tier-1">
+        <div class="model-header">
+          <div class="model-num-badge">01</div>
+          <div class="model-header-text">
+            <h3>Warm Lead Referrals</h3>
+            <span>Inbound Interest · Handed Off As-Is</span>
+          </div>
+        </div>
+        <div class="model-body">
+          <p>A business owner has expressed genuine interest in AI consulting through our intake process. Basic contact verification has been completed. The lead is passed to one partner for follow-up.</p>
+          <ul class="model-list">
+            <li>Verified contact information and source of inquiry</li>
+            <li>No discovery, process mapping, or budget validation completed</li>
+            <li>Delivered to one partner exclusively</li>
+            <li>Partner takes full responsibility for qualification and follow-up</li>
+            <li>Commercial terms: negotiated based on lead volume and arrangement</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Model 2 -->
+      <div class="model-row tier-2">
+        <div class="model-header">
+          <div class="model-num-badge">02</div>
+          <div class="model-header-text">
+            <h3>Qualified Opportunities</h3>
+            <span>Discovery Completed · Opportunity Brief Included</span>
+          </div>
+        </div>
+        <div class="model-body">
+          <p>We've completed a structured discovery conversation with the prospect and produced a written Opportunity Brief — typically 1 to 2 pages — that gives your team a clear picture of the client before you commit to engagement.</p>
+          <ul class="model-list">
+            <li>Decision-maker path and authority assessment</li>
+            <li>Business process map and current tools/data environment</li>
+            <li>Estimated volumes, pain points, and desired outcomes</li>
+            <li>Budget band, timeline, and key constraints</li>
+            <li>Implementation readiness assessment</li>
+            <li>Recommended handoff approach and suggested first step</li>
+            <li>Partner may accept or decline the opportunity — no obligation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Model 3 -->
+      <div class="model-row tier-3">
+        <div class="model-header">
+          <div class="model-num-badge">03</div>
+          <div class="model-header-text">
+            <h3>Co-Sell Partnership</h3>
+            <span>Active Collaboration · Partner Delivers</span>
+          </div>
+        </div>
+        <div class="model-body">
+          <p>We work alongside your team through discovery, scoping, and close. AI Strategy US supports the sales process; the partner agency handles full implementation and ongoing client delivery.</p>
+          <ul class="model-list">
+            <li>Joint discovery and scoping calls with the client</li>
+            <li>Solution direction input and positioning support from our side</li>
+            <li>Active involvement through the close</li>
+            <li>Partner owns implementation, delivery, and ongoing support</li>
+            <li>Retainer and long-term engagement terms addressed upfront</li>
+            <li>Commercial terms negotiated per engagement based on scope and involvement</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- SECTION 4: HOW QUALIFIED LEADS ARE CREATED -->
+  <div class="section">
+    <span class="section-eyebrow">Lead Quality</span>
+    <h2>How We Qualify Opportunities</h2>
+    <p>For Qualified Lead opportunities, we assess each prospect across four primary categories using a simple scoring rubric. These are the factors that most directly determine whether an opportunity is worth your team's time.</p>
+
+    <div class="score-grid">
+      <div class="score-item">
+        <div class="score-label">Decision-Maker Authority</div>
+        <div class="score-range">0 – 5</div>
+      </div>
+      <div class="score-item">
+        <div class="score-label">Budget Strength</div>
+        <div class="score-range">0 – 5</div>
+      </div>
+      <div class="score-item">
+        <div class="score-label">Urgency</div>
+        <div class="score-range">0 – 5</div>
+      </div>
+      <div class="score-item">
+        <div class="score-label">Implementation Readiness</div>
+        <div class="score-range">0 – 5</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 14px;">Each score is documented in the Opportunity Brief. Partners receive the full scoring breakdown alongside the qualitative notes from our discovery conversation.</p>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- SECTION 5: PROCESS EXPECTATIONS -->
+  <div class="section">
+    <span class="section-eyebrow">Working Together</span>
+    <h2>Process Expectations</h2>
+
+    <div class="expect-grid" style="margin-bottom: 20px;">
+
+      <div class="expect-card">
+        <h4>Lead Exclusivity</h4>
+        <p>Every opportunity is delivered to one partner only. We do not offer the same lead to multiple agencies simultaneously.</p>
+      </div>
+
+      <div class="expect-card">
+        <h4>Acceptance &amp; Decline</h4>
+        <p>For Qualified Leads, partners may accept or pass on any opportunity. There is no obligation. Declined opportunities may be offered to another partner at our discretion.</p>
+      </div>
+
+      <div class="expect-card">
+        <h4>Confidentiality</h4>
+        <p>All client information shared through any collaboration model is confidential. Partner agrees not to redistribute, share, or repurpose any shared client data.</p>
+      </div>
+
+      <div class="expect-card">
+        <h4>Responsiveness</h4>
+        <p>Partners are expected to follow up on delivered opportunities promptly. Warm leads are time-sensitive — delay reduces conversion significantly.</p>
+      </div>
+
+      <div class="expect-card">
+        <h4>Lead Timing</h4>
+        <p>Opportunity delivery is based on our current pipeline and partner capacity. We do not guarantee volume or fixed delivery frequency. Opportunities are routed as they become available.</p>
+      </div>
+
+      <div class="expect-card">
+        <h4>Feedback Loop</h4>
+        <p>We ask partners to share outcome updates on delivered opportunities. This helps us calibrate quality, refine scoring, and improve handoff quality over time.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- SECTION 6: IDEAL PARTNER CRITERIA -->
+  <div class="section">
+    <span class="section-eyebrow">What We Value</span>
+    <h2>Ideal Partner Criteria</h2>
+    <p>Beyond delivery capability, the partnerships that perform best share these qualities consistently:</p>
+
+    <ul class="criteria-list" style="margin-top: 12px;">
+      <li class="good"><span class="ci">✓</span><span class="ci-text"><strong style="color: var(--dark);">Responsive</strong> — follows up on leads promptly and communicates clearly with clients</span></li>
+      <li class="good"><span class="ci">✓</span><span class="ci-text"><strong style="color: var(--dark);">End-to-end capable</strong> — handles discovery through implementation and post-delivery support</span></li>
+      <li class="good"><span class="ci">✓</span><span class="ci-text"><strong style="color: var(--dark);">Client-first</strong> — prioritizes client outcomes; strong communication and delivery track record</span></li>
+      <li class="good"><span class="ci">✓</span><span class="ci-text"><strong style="color: var(--dark);">Process-oriented</strong> — consistent handoffs, clear communication, honest feedback on fit</span></li>
+      <li class="good"><span class="ci">✓</span><span class="ci-text"><strong style="color: var(--dark);">Proven</strong> — completed client engagements in AI consulting or implementation they can speak to</span></li>
+      <li class="good"><span class="ci">✓</span><span class="ci-text"><strong style="color: var(--dark);">Available</strong> — has current capacity to take on new client work</span></li>
+      <li class="bad"><span class="ci">✗</span><span class="ci-text"><strong style="color: var(--dark);">Not accepted:</strong> Single-product vendors, SaaS-only agencies, or teams without implementation capability</span></li>
+      <li class="bad"><span class="ci">✗</span><span class="ci-text"><strong style="color: var(--dark);">Not accepted:</strong> Healthcare, private equity, or highly regulated industry specialists</span></li>
+    </ul>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- SECTION 7: NEXT STEPS -->
+  <div class="next-steps-box">
+    <h2>Next Steps</h2>
+    <p>If you've received this document, your inquiry has been reviewed and a member of our team will be in touch to discuss fit and next steps. Here's what to expect:</p>
+
+    <ul class="next-steps-list">
+      <li>A team member from AI Strategy US will reach out within a few business days to schedule a brief fit call</li>
+      <li>We'll align on your team's capabilities, capacity, and which collaboration model makes the most sense</li>
+      <li>If there's mutual interest, we'll formalize the arrangement and begin routing relevant opportunities your way</li>
+      <li>All commercial terms are discussed and documented before any client introduction is made</li>
+    </ul>
+
+    <!--
+      [PLACEHOLDER] BOOKING LINK
+      When a calendar/scheduling link is available, replace the paragraph below
+      with an anchor tag pointing to the booking URL.
+      Example: <a href="YOUR_BOOKING_LINK" class="booking-placeholder">Schedule a Fit Call</a>
+    -->
+    <p style="font-size: 0.855rem; color: rgba(255,255,255,0.38);">
+      A member of our team will reach out directly to arrange a time to connect. No action is needed on your end at this stage.
+    </p>
+
+    <p class="booking-note">Questions in the meantime? Reach out via the Contact page at ai-strategy.us/contact/</p>
+  </div>
+
+
+  <!-- SHEET FOOTER -->
+  <div class="sheet-footer">
+    <div class="brand-footer">AI Strategy<span class="accent"> US</span>, LLC</div>
+    <div class="footer-note">
+      Nashville, Tennessee &nbsp;·&nbsp; Serving Businesses Nationwide<br>
+      Confidential — For Partner Use Only &nbsp;·&nbsp; ai-strategy.us
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
