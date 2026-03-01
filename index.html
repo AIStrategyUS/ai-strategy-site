@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Consulting for Small Businesses | AI Strategy US</title>
+  <meta name="description" content="AI Strategy consulting firm helping small businesses identify and implement practical AI solutions to save time, reduce costs, and increase revenue. Nashville-based. Serving nationwide." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ai-strategy.us" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Consulting for Small Businesses | AI Strategy US" />
+  <meta property="og:description" content="Practical AI consulting for small business owners. We help you identify where AI can save time, cut costs, and grow revenue." />
+  <meta property="og:url" content="https://ai-strategy.us" />
+  <meta property="og:type" content="website" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "AI Strategy US, LLC",
+    "url": "https://ai-strategy.us",
+    "description": "AI strategy consulting for small businesses. We help identify and implement practical AI solutions.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN",
+      "addressCountry": "US"
+    },
+    "areaServed": "US"
+  }
+  </script>
+
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      color: #1a2033;
+      background: #ffffff;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* ===========================
+       CSS VARIABLES
+    =========================== */
+    :root {
+      --dark:      #0E1525;
+      --dark-2:    #14203A;
+      --dark-3:    #1B2B4A;
+      --blue:      #2563EB;
+      --blue-h:    #3B82F6;
+      --gold:      #C09A3E;
+      --green:     #34D399;
+      --light-bg:  #F5F6F9;
+      --border:    #E2E6EF;
+      --muted:     #6B7280;
+      --muted-lt:  #9CA3AF;
+      --white:     #ffffff;
+    }
+
+    /* ===========================
+       TYPOGRAPHY
+    =========================== */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+    h2 { font-size: clamp(1.65rem, 3.5vw, 2.35rem); }
+    h3 { font-size: clamp(1rem, 2vw, 1.2rem); }
+
+    .section-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .section-label.gold { color: var(--gold); }
+
+    /* ===========================
+       LAYOUT
+    =========================== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 84px 0; }
+
+    /* ===========================
+       BUTTONS
+    =========================== */
+    .btn-primary {
+      display: inline-block;
+      background: var(--blue);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-primary:hover {
+      background: var(--blue-h);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    /* ===========================
+       NAVIGATION
+    =========================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(14, 21, 37, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+    .nav-logo .accent { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--blue);
+      color: #fff;
+      padding: 9px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--blue-h); }
+
+    /* ===========================
+       HERO
+    =========================== */
+    #hero {
+      background: var(--dark);
+      color: #fff;
+      padding: 148px 0 108px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-glow-1 {
+      position: absolute;
+      top: -180px; right: -180px;
+      width: 680px; height: 680px;
+      background: radial-gradient(circle, rgba(37,99,235,0.13) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      bottom: -120px; left: -80px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(192,154,62,0.07) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+
+    .hero-content h1 {
+      color: #fff;
+      margin-bottom: 22px;
+      max-width: 680px;
+    }
+
+    .hero-content h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.17rem);
+      color: rgba(255,255,255,0.60);
+      max-width: 580px;
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    /* ── Hero guide nudge link ── */
+    .hero-guide-nudge {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.36);
+      margin-bottom: 36px;
+    }
+
+    .hero-guide-nudge a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(255,255,255,0.2);
+      transition: color 0.2s;
+    }
+    .hero-guide-nudge a:hover { color: var(--gold); text-decoration-color: var(--gold); }
+
+    .hero-credibility {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: rgba(255,255,255,0.32);
+      font-size: 0.875rem;
+    }
+
+    .hero-credibility::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ===========================
+       PAIN POINTS
+    =========================== */
+    #pain-points { background: var(--light-bg); }
+
+    .section-header {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 56px;
+    }
+    .section-header h2 { color: var(--dark); margin-bottom: 14px; }
+    .section-header p  { color: var(--muted); font-size: 1.04rem; }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .pain-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 26px 24px;
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+    .pain-card:hover { border-color: #c0cce8; }
+
+    .pain-icon {
+      width: 38px; height: 38px;
+      min-width: 38px;
+      background: rgba(37,99,235,0.07);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+    }
+
+    .pain-card h3 {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .pain-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    /* ===========================
+       WHAT WE DO
+    =========================== */
+    #what-we-do { background: var(--white); }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .what-text h2     { color: var(--dark); margin-bottom: 18px; }
+    .what-text p      { color: var(--muted); font-size: 1.02rem; line-height: 1.72; margin-bottom: 14px; }
+
+    .what-points {
+      list-style: none;
+      margin-top: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .what-points li {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      font-size: 0.96rem;
+      color: #2d3748;
+      line-height: 1.55;
+    }
+
+    .what-points li::before {
+      content: '→';
+      color: var(--blue);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .what-visual {
+      background: var(--dark);
+      border-radius: 14px;
+      padding: 38px 34px;
+      color: #fff;
+    }
+
+    .what-visual-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .what-stat {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 18px 0;
+    }
+    .what-stat:first-of-type { padding-top: 0; }
+    .what-stat:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .what-stat-num {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .what-stat-desc {
+      font-size: 0.855rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+
+    /* ===========================
+       GUIDE TEASER BANNER
+    =========================== */
+    #guide-teaser {
+      background: linear-gradient(135deg, #0f1e3c 0%, #162749 100%);
+      padding: 60px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .guide-teaser-inner {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      justify-content: space-between;
+    }
+
+    .guide-badge {
+      flex-shrink: 0;
+      width: 68px; height: 68px;
+      background: rgba(192,154,62,0.1);
+      border: 1px solid rgba(192,154,62,0.22);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .guide-teaser-text { flex: 1; min-width: 0; }
+
+    .guide-teaser-text .guide-kicker {
+      font-size: 0.69rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .guide-teaser-text h3 {
+      font-size: clamp(0.97rem, 2vw, 1.18rem);
+      color: #fff;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+      font-weight: 700;
+      line-height: 1.32;
+    }
+
+    .guide-teaser-text p {
+      font-size: 0.905rem;
+      color: rgba(255,255,255,0.43);
+      line-height: 1.65;
+    }
+
+    .guide-teaser-cta {
+      flex-shrink: 0;
+      display: inline-block;
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid rgba(192,154,62,0.48);
+      padding: 13px 26px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .guide-teaser-cta:hover {
+      background: rgba(192,154,62,0.1);
+      border-color: var(--gold);
+      color: #d4ad52;
+    }
+
+    /* ===========================
+       WEBSITE CREATION
+    =========================== */
+    #website-creation { background: var(--light-bg); }
+
+    .website-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .website-inner h2 { color: var(--dark); margin-bottom: 16px; }
+    .website-inner p  { color: var(--muted); font-size: 1.04rem; line-height: 1.72; margin-bottom: 12px; }
+
+    .website-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .pill {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 0.88rem;
+      color: #374151;
+      font-weight: 500;
+    }
+
+    /* ===========================
+       PROCESS
+    =========================== */
+    #process { background: var(--dark); }
+
+    #process .section-header h2 { color: #fff; }
+    #process .section-header p  { color: rgba(255,255,255,0.45); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .step {
+      background: var(--dark);
+      padding: 34px 26px;
+      position: relative;
+    }
+
+    .step-bg-num {
+      position: absolute;
+      top: 12px; right: 16px;
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      user-select: none;
+    }
+
+    .step-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .step h3      { font-size: 1.08rem; color: #fff; margin-bottom: 10px; }
+    .step p       { font-size: 0.875rem; color: rgba(255,255,255,0.44); line-height: 1.62; }
+
+    /* ===========================
+       USE CASES
+    =========================== */
+    #use-cases { background: var(--white); }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .case-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px;
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .case-card:hover {
+      border-color: var(--blue);
+      box-shadow: 0 4px 22px rgba(37,99,235,0.08);
+    }
+
+    .case-industry {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 9px;
+    }
+
+    .case-card h3 { font-size: 1rem; color: var(--dark); margin-bottom: 9px; }
+    .case-card p  { font-size: 0.875rem; color: var(--muted); line-height: 1.62; }
+
+    .case-result {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: #059669;
+      font-weight: 600;
+    }
+
+    .cases-grid .case-card:nth-child(4) { grid-column: 1; }
+    .cases-grid .case-card:nth-child(5) { grid-column: 2 / span 2; }
+
+    /* ===========================
+       WHY US
+    =========================== */
+    #why-us { background: var(--light-bg); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .why-grid .why-card:nth-child(4) { grid-column: 1; }
+    .why-grid .why-card:nth-child(5) { grid-column: 2; }
+
+    .why-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 26px;
+    }
+
+    .why-icon    { font-size: 1.35rem; margin-bottom: 12px; }
+    .why-card h3 { font-size: 0.97rem; color: var(--dark); margin-bottom: 7px; font-weight: 700; }
+    .why-card p  { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+    /* ===========================
+       CONTACT / CTA
+    =========================== */
+    #contact { background: var(--dark-2); }
+
+    #contact .section-header h2 { color: #fff; }
+    #contact .section-header p  { color: rgba(255,255,255,0.50); }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.55fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .session-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .session-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.55;
+    }
+
+    .session-list li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .contact-note {
+      margin-top: 28px;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px;
+      font-size: 0.855rem;
+      color: rgba(255,255,255,0.34);
+      line-height: 1.6;
+    }
+
+    /* ===========================
+       FORM
+    =========================== */
+    .contact-form { display: flex; flex-direction: column; gap: 15px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 6px; }
+
+    label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.42);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 7px;
+      padding: 11px 14px;
+      color: #fff;
+      font-size: 0.94rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: rgba(255,255,255,0.18);
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--blue);
+      background: rgba(255,255,255,0.07);
+    }
+
+    /* ── Interest type toggle buttons ── */
+    .interest-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .interest-btn {
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+      text-align: center;
+      line-height: 1.35;
+      border: 1.5px solid transparent;
+    }
+
+    /* Primary — Consultation (default active state) */
+    .interest-btn.btn-consultation {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+    .interest-btn.btn-consultation:hover {
+      background: var(--blue-h);
+      border-color: var(--blue-h);
+      transform: translateY(-1px);
+    }
+    .interest-btn.btn-consultation.inactive {
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.35);
+      border-color: rgba(255,255,255,0.1);
+    }
+    .interest-btn.btn-consultation.inactive:hover {
+      background: rgba(37,99,235,0.1);
+      color: rgba(255,255,255,0.65);
+      border-color: rgba(37,99,235,0.4);
+      transform: none;
+    }
+
+    /* Secondary — Guide (default inactive state) */
+    .interest-btn.btn-guide {
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.45);
+      border-color: rgba(255,255,255,0.1);
+    }
+    .interest-btn.btn-guide:hover {
+      background: rgba(192,154,62,0.08);
+      color: rgba(255,255,255,0.7);
+      border-color: rgba(192,154,62,0.35);
+    }
+    .interest-btn.btn-guide.active {
+      background: rgba(192,154,62,0.1);
+      color: var(--gold);
+      border-color: rgba(192,154,62,0.5);
+    }
+
+    .interest-toggle-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* Hidden input that carries the value into the payload */
+    #interest_type_hidden { display: none; }
+
+    textarea { resize: vertical; min-height: 118px; }
+
+    .cf-turnstile { margin: 2px 0; }
+
+    .form-submit {
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 7px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, transform 0.15s;
+      width: 100%;
+    }
+    .form-submit:hover:not(:disabled) {
+      background: var(--blue-h);
+      transform: translateY(-1px);
+    }
+    .form-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .form-status {
+      padding: 16px 18px;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      display: none;
+    }
+    .form-status.success {
+      background: rgba(52,211,153,0.1);
+      border: 1px solid rgba(52,211,153,0.28);
+      color: #34D399;
+      display: block;
+    }
+    .form-status.error {
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.28);
+      color: #FCA5A5;
+      display: block;
+    }
+    .form-status.success a {
+      color: var(--gold);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      display: inline-block;
+      margin-top: 6px;
+    }
+    .form-status.success .status-sub {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.83rem;
+      color: rgba(52,211,153,0.55);
+    }
+
+    /* ── Calendar scheduling link (shown after consultation submission) ── */
+    .calendar-cta {
+      display: block;
+      margin-top: 14px;
+      padding: 13px 18px;
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(37,99,235,0.35);
+      border-radius: 8px;
+      color: #93c5fd;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-align: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .calendar-cta:hover {
+      background: rgba(37,99,235,0.2);
+      border-color: rgba(37,99,235,0.55);
+    }
+
+    /* ── Consent checkboxes ── */
+    .consent-group {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+    }
+
+    .consent-item {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+    }
+
+    .consent-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      margin-top: 2px;
+      border-radius: 4px;
+      padding: 0;
+      cursor: pointer;
+      accent-color: var(--blue);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      -webkit-appearance: auto;
+      appearance: auto;
+    }
+
+    .consent-item label {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.38);
+      letter-spacing: 0;
+      cursor: pointer;
+      line-height: 1.55;
+    }
+
+    .consent-item label a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .consent-item label a:hover { color: var(--gold); }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 32px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .footer-logo .accent { color: var(--gold); }
+
+    .footer-inner p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.22);
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 960px) {
+      .pain-grid    { grid-template-columns: 1fr 1fr; }
+      .cases-grid   { grid-template-columns: 1fr 1fr; }
+      .cases-grid .case-card:nth-child(4),
+      .cases-grid .case-card:nth-child(5) { grid-column: auto; }
+      .why-grid     { grid-template-columns: 1fr 1fr; }
+      .why-grid .why-card:nth-child(4),
+      .why-grid .why-card:nth-child(5)  { grid-column: auto; }
+      .steps-grid   { grid-template-columns: 1fr 1fr; }
+      .guide-teaser-inner { gap: 24px; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 64px 0; }
+      #hero   { padding: 120px 0 80px; }
+
+      .two-col        { grid-template-columns: 1fr; gap: 40px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 44px; }
+      .form-row       { grid-template-columns: 1fr; }
+
+      .guide-teaser-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .guide-teaser-cta { width: 100%; text-align: center; }
+    }
+
+    @media (max-width: 580px) {
+      .pain-grid  { grid-template-columns: 1fr; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .cases-grid .case-card:nth-child(4),
+      .cases-grid .case-card:nth-child(5) { grid-column: auto; }
+      .why-grid   { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .guide-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================
+       NAVIGATION
+  ========================= -->
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">AI Strategy<span class="accent"> US</span></a>
+      <a href="#contact" class="nav-cta">Free Strategy Session</a>
+    </div>
+  </nav>
+
+
+  <!-- ========================
+       HERO
+  ========================= -->
+  <section id="hero" aria-label="Introduction">
+    <div class="hero-glow-1" aria-hidden="true"></div>
+    <div class="hero-glow-2" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-eyebrow">AI Consulting for Small Business</span>
+        <h1>Run a Smarter Business<br>Without the <em>Overwhelm</em></h1>
+        <p class="hero-subtitle">
+          We work directly with small business owners to find exactly where AI can save time, cut costs, and bring in more revenue — then hand you a clear, practical plan to make it happen.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Schedule Free Strategy Session</a>
+          <a href="#what-we-do" class="btn-ghost">See How It Works</a>
+        </div>
+
+        <!--
+          GUIDE NUDGE LINK
+          Clicking this scrolls to the contact section AND pre-selects
+          "Send Me the Free AI Guide" in the interest dropdown.
+        -->
+        <p class="hero-guide-nudge">
+          Or <a href="#contact" id="hero-guide-link">download our free 2026 AI guide for small businesses</a>.
+        </p>
+
+        <div class="hero-credibility">
+          Headquartered in Nashville. Serving businesses nationwide.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       PAIN POINTS
+  ========================= -->
+  <section id="pain-points" aria-labelledby="pain-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Sound Familiar?</span>
+        <h2 id="pain-heading">Your business is growing — but so is the workload</h2>
+        <p>Most small business owners aren't short on effort. They're short on leverage. If any of these hit close to home, you're in the right place.</p>
+      </div>
+
+      <div class="pain-grid">
+
+        <div class="pain-card">
+          <div class="pain-icon" aria-hidden="true">⏱</div>
+          <div>
+            <h3>Buried in Repetitive Tasks</h3>
+            <p>You spend hours each week on the same manual work that could run automatically in the background.</p>
+          </div>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-icon" aria-hidden="true">🔧</div>
+          <div>
+            <h3>Too Many Tools, Not Enough Results</h3>
+            <p>You're paying for software you barely use — and still managing most things by hand anyway.</p>
+          </div>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-icon" aria-hidden="true">📬</div>
+          <div>
+            <h3>Follow-Ups Falling Through the Cracks</h3>
+            <p>Leads go cold, messages wait, and you're constantly playing catch-up on things that should have been handled already.</p>
+          </div>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-icon" aria-hidden="true">📋</div>
+          <div>
+            <h3>Inconsistent Lead Handling</h3>
+            <p>Every new inquiry gets handled differently. There's no reliable, repeatable process for capturing and following up with prospects.</p>
+          </div>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-icon" aria-hidden="true">📁</div>
+          <div>
+            <h3>Admin Work Eating Your Day</h3>
+            <p>Scheduling, invoicing, data entry, emails — the back-office grind keeps pulling you away from actually running your business.</p>
+          </div>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-icon" aria-hidden="true">🕐</div>
+          <div>
+            <h3>Not Enough Hours in the Day</h3>
+            <p>The business depends too much on you being present for everything. You can't grow what you can't step away from.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       WHAT WE DO
+  ========================= -->
+  <section id="what-we-do" aria-labelledby="what-heading">
+    <div class="container">
+      <div class="two-col">
+
+        <div class="what-text">
+          <span class="section-label">What We Actually Do</span>
+          <h2 id="what-heading">We don't sell you software. We build you a strategy.</h2>
+          <p>There's no shortage of AI tools right now. What most small businesses are missing is a clear picture of which ones are worth using — and how to set them up in a way that actually works for how their business runs.</p>
+          <p>That's what we do. We start by understanding your business, your workflow, and your goals. Then we identify where AI can have the most meaningful impact and give you a practical plan to act on it.</p>
+          <ul class="what-points">
+            <li>We sit down with you and map out how your business currently operates</li>
+            <li>We identify where time and money are being unnecessarily lost</li>
+            <li>We pinpoint specific AI opportunities relevant to your business</li>
+            <li>We deliver a written, step-by-step implementation roadmap</li>
+            <li>We can help you execute it — as much or as little as you need</li>
+          </ul>
+        </div>
+
+        <div class="what-visual" aria-label="What results can look like">
+          <div class="what-visual-label">What This Can Look Like in Practice</div>
+
+          <div class="what-stat">
+            <div class="what-stat-num">10–15 hrs</div>
+            <div class="what-stat-desc">Recovered per week by businesses that implement consistent workflow automation</div>
+          </div>
+
+          <div class="what-stat">
+            <div class="what-stat-num">Faster</div>
+            <div class="what-stat-desc">Lead response times when automated systems handle initial outreach and follow-up</div>
+          </div>
+
+          <div class="what-stat">
+            <div class="what-stat-num">Less</div>
+            <div class="what-stat-desc">Admin overhead when routine tasks are handled without manual input from the owner</div>
+          </div>
+
+          <div class="what-stat">
+            <div class="what-stat-num">Clear</div>
+            <div class="what-stat-desc">Actionable roadmap — tailored to your specific business, not a generic checklist</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       GUIDE TEASER BANNER
+       Positioned directly after "What We Do"
+       Links to #contact and pre-selects the free guide option
+  ========================= -->
+  <section id="guide-teaser" aria-labelledby="guide-teaser-heading">
+    <div class="container">
+      <div class="guide-teaser-inner">
+
+        <div class="guide-badge" aria-hidden="true">📋</div>
+
+        <div class="guide-teaser-text">
+          <span class="guide-kicker">Free Resource — 2026 Guide</span>
+          <h3 id="guide-teaser-heading">5 Practical Ways Small Businesses Are Using AI in 2026<br>(And What Most Are Missing)</h3>
+          <p>AI adoption is accelerating — and the gap between businesses using it strategically and those that aren't is already widening. This guide cuts through the noise with five specific, ROI-grounded applications, what the most common mistakes look like, and a practical framework for evaluating your own opportunities.</p>
+        </div>
+
+        <!--
+          GUIDE TEASER CTA
+          Clicking scrolls to #contact and pre-selects "Send Me the Free AI Guide"
+        -->
+        <a href="#contact" class="guide-teaser-cta" id="teaser-guide-link">
+          Get the Free Guide →
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       WEBSITE CREATION
+  ========================= -->
+  <section id="website-creation" aria-labelledby="web-heading">
+    <div class="container">
+      <div class="website-inner">
+        <span class="section-label">Supporting Service</span>
+        <h2 id="web-heading">Professional Website Design &amp; Development</h2>
+        <p>A clean, well-built website matters. We design and develop professional websites for small businesses — from conversion-focused lead generation sites to portfolio and presence sites for contractors, real estate professionals, and service-based businesses.</p>
+        <p>No cookie-cutter templates. No unnecessary complexity. Just a well-structured, credible online presence that clearly represents your business and works hard for it.</p>
+        <div class="website-pills">
+          <span class="pill">Clean, modern design</span>
+          <span class="pill">Mobile responsive</span>
+          <span class="pill">Lead generation sites</span>
+          <span class="pill">Portfolio &amp; presence sites</span>
+          <span class="pill">Built for credibility</span>
+          <span class="pill">Fast and SEO-ready</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       PROCESS
+  ========================= -->
+  <section id="process" aria-labelledby="process-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label gold">Our Process</span>
+        <h2 id="process-heading">Simple. Structured. Straightforward.</h2>
+        <p>No jargon, no guesswork. Here's exactly what working with us looks like.</p>
+      </div>
+
+      <div class="steps-grid">
+
+        <div class="step">
+          <div class="step-bg-num" aria-hidden="true">01</div>
+          <div class="step-tag">Step 1</div>
+          <h3>Discovery Session</h3>
+          <p>We begin with a focused conversation about your business — what you do, how you operate, and where you feel the most friction day to day.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-bg-num" aria-hidden="true">02</div>
+          <div class="step-tag">Step 2</div>
+          <h3>Business Review</h3>
+          <p>We look more closely at your current tools, workflows, and processes to understand how your business actually runs behind the scenes.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-bg-num" aria-hidden="true">03</div>
+          <div class="step-tag">Step 3</div>
+          <h3>AI Opportunity Plan</h3>
+          <p>We identify specific areas where AI can save time, reduce costs, or generate revenue — ranked by ease of implementation and business impact.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-bg-num" aria-hidden="true">04</div>
+          <div class="step-tag">Step 4</div>
+          <h3>Implementation Roadmap</h3>
+          <p>You receive a written plan with exactly what to do, what tools to consider, and in what order — whether you execute it yourself or with our help.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       USE CASES
+       Language uses illustrative/scenario framing only.
+       Does NOT imply these are past client engagements.
+  ========================= -->
+  <section id="use-cases" aria-labelledby="cases-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Illustrative Scenarios</span>
+        <h2 id="cases-heading">What this kind of strategy looks like in practice</h2>
+        <p>These representative scenarios show how businesses like yours can put AI to work in ways that are grounded, realistic, and built around actual ROI — not theory.</p>
+      </div>
+
+      <div class="cases-grid">
+
+        <div class="case-card">
+          <div class="case-industry">Contracting &amp; Trades</div>
+          <h3>Automating Estimate Follow-Ups</h3>
+          <p>Take a general contractor who sends out estimates and then relies on memory to follow up. An automated sequence — triggered the moment the estimate goes out — can handle the first two touchpoints without the contractor touching his phone.</p>
+          <div class="case-result">→ Potential outcome: higher close rate, zero manual follow-up effort</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-industry">Real Estate</div>
+          <h3>Consistent Lead Management</h3>
+          <p>Consider a real estate agent tracking leads in a spreadsheet, occasionally missing warm prospects simply due to timing. A structured AI-assisted workflow could categorize leads by priority and surface the right contacts at the right moment — no manual sorting required.</p>
+          <div class="case-result">→ Potential outcome: no cold leads, faster and more consistent follow-through</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-industry">Healthcare &amp; Medical</div>
+          <h3>Reducing Administrative Load</h3>
+          <p>In a small medical office where staff spends hours on confirmations, reminders, and routine intake, streamlining these touchpoints through automation could free front-desk time for work that actually requires a human being.</p>
+          <div class="case-result">→ Potential outcome: staff focused on patient experience, less time on paperwork</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-industry">Service Business</div>
+          <h3>Automated Appointment Reminders</h3>
+          <p>For any service business running a schedule, no-shows and last-minute cancellations represent direct lost revenue. Automated confirmation and reminder sequences sent at the right intervals are among the simplest, highest-return implementations available to small businesses today.</p>
+          <div class="case-result">→ Potential outcome: fewer missed appointments, more predictable revenue</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-industry">E-Commerce &amp; Online Business</div>
+          <h3>Handling Repetitive Customer Inquiries</h3>
+          <p>Online businesses often field the same customer questions dozens of times per day. An AI-assisted response layer can handle the most common inquiries instantly, around the clock — reducing response time and freeing the owner to focus on growth rather than the inbox.</p>
+          <div class="case-result">→ Potential outcome: faster support, reclaimed owner time, higher satisfaction</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       WHY US
+  ========================= -->
+  <section id="why-us" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Why AI Strategy US</span>
+        <h2 id="why-heading">Practical strategy. Real results. No fluff.</h2>
+        <p>There's a lot of noise around AI right now. We cut through it and focus on what actually matters for your business.</p>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card">
+          <div class="why-icon" aria-hidden="true">🎯</div>
+          <h3>Practical, Not Theoretical</h3>
+          <p>Every recommendation we make is grounded in what will realistically work inside your business — not what sounds good in a presentation.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon" aria-hidden="true">📊</div>
+          <h3>Focused on Results</h3>
+          <p>We measure success by time saved, costs reduced, and revenue increased. Not by how many tools you're using.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon" aria-hidden="true">🔍</div>
+          <h3>Custom to Your Business</h3>
+          <p>There's no one-size-fits-all strategy. Your roadmap is built around how your specific operation actually runs.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon" aria-hidden="true">✂️</div>
+          <h3>No Unnecessary Complexity</h3>
+          <p>We won't recommend anything that isn't genuinely useful. Simple, effective solutions consistently outperform complicated ones.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon" aria-hidden="true">📄</div>
+          <h3>Clear, Actionable Strategy</h3>
+          <p>You leave every engagement with a written plan you can act on — whether you execute it yourself or with our help.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       CONTACT — DUAL PURPOSE FORM
+       interest_type = "Consultation" → strategy session flow
+       interest_type = "Guide Only"   → guide delivery flow
+
+       GOOGLE SHEET COLUMNS (logged by Apps Script):
+         name, email, phone, company, message,
+         interest_type, consent_terms, consent_sms,
+         submitted_at, page_url, turnstile_token
+
+       BACKEND STATUS COLUMNS (set by Apps Script automation):
+         email_1_sent    — first automated email sent (guide or consultation intro)
+         email_2_sent    — 24-hour follow-up email sent
+         sms_sent        — SMS notification sent (Consultation only)
+         calendar_booked — manually or webhook-marked after scheduling
+  ========================= -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label gold">Get Started</span>
+        <h2 id="contact-heading">Schedule a session or grab the free guide</h2>
+        <p>Whether you're ready to talk strategy or you'd simply like to read the free 2026 AI guide first — fill out the form below and we'll take care of the rest.</p>
+      </div>
+
+      <div class="contact-layout">
+
+        <!-- Left column — swaps based on interest_type selection -->
+        <div class="contact-info">
+
+          <!-- Shown when interest_type = Consultation (default) -->
+          <div id="desc-session">
+            <h3>What happens during the session:</h3>
+            <ul class="session-list">
+              <li>We learn about your business, your team, and how you currently operate</li>
+              <li>We identify specific areas where AI can create the most meaningful impact</li>
+              <li>We share honest, practical observations — not a rehearsed sales pitch</li>
+              <li>You leave with clear next steps, whether you work with us or not</li>
+              <li>We'll also send you our free 2026 AI guide as a bonus — yours to keep regardless of what you decide</li>
+            </ul>
+            <div class="contact-note">
+              No technical background required. No commitment to move forward. Just a straightforward conversation focused entirely on your business.
+            </div>
+          </div>
+
+          <!-- Shown when interest_type = Guide Only -->
+          <div id="desc-guide" style="display:none;">
+            <h3>About the free 2026 guide:</h3>
+            <ul class="session-list">
+              <li>Covers 5 practical, ROI-focused AI applications for small businesses</li>
+              <li>Explains what most businesses get wrong when adopting AI tools</li>
+              <li>Written in plain language — no technical background needed</li>
+              <li>Includes a closing framework for evaluating your own AI opportunities</li>
+            </ul>
+            <div class="contact-note">
+              Enter your name and email below. Your guide will arrive in your inbox shortly. No sales pressure. No spam.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right column — form -->
+        <div>
+
+          <!-- Status / confirmation area (populated by JS after submission) -->
+          <div class="form-status" id="form-status" role="alert" aria-live="polite"></div>
+
+          <!--
+            ================================================================
+            SETUP CHECKLIST — Replace placeholders before going live
+            ================================================================
+
+            [1] TURNSTILE SITE KEY
+                Locate:  data-sitekey="0x4AAAAAACkhxaYe1Yc_DQHU"  (in form below)
+                Replace: 0x4AAAAAACkhxaYe1Yc_DQHU
+                Source:  Cloudflare Dashboard → Turnstile → Add Site
+
+            [2] GOOGLE APPS SCRIPT WEB APP URL
+                Locate:  const GOOGLE_WEBAPP_URL = 'https://ai-strategy-form-main.aistrategyus.workers.dev/';
+                Replace: https://ai-strategy-form-main.aistrategyus.workers.dev/
+                Source:  Apps Script → Deploy → New Deployment → Web App
+                         (Execute as: Me | Who has access: Anyone)
+
+            [3] SECRET TOKEN
+                Locate:  value="UynY5pZCu44kKs0eqfb58e7JNuc5zw6PgQRgXYx6"  (hidden input below)
+                Replace: UynY5pZCu44kKs0eqfb58e7JNuc5zw6PgQRgXYx6
+                Purpose: Apps Script verifies payload.secret_token matches
+                         this value before writing to Sheets. Rejects spoofed POSTs.
+
+            [4] CALENDAR SCHEDULING LINK
+                Locate:  const CALENDAR_URL = 'YOUR_CALENDAR_LINK';
+                Replace: YOUR_CALENDAR_LINK
+                Source:  Calendly, Cal.com, or similar scheduling tool
+                Effect:  Shown inline in the confirmation message for Consultation
+                         submissions so users can book immediately.
+
+            BACKEND AUTOMATION NOTES (implemented in Apps Script, NOT here):
+            ─────────────────────────────────────────────────────────────────
+            If interest_type = "Consultation":
+              • Send SMS immediately to owner (via Twilio or similar)
+              • After 5–10 min delay: send consultation email to submitter
+                (include calendar link + free guide as a bonus)
+              • After 24 hrs: send follow-up email if calendar not yet booked
+              • Log: email_1_sent, email_2_sent, sms_sent, calendar_booked
+
+            If interest_type = "Guide Only":
+              • No SMS sent
+              • After 5–10 min delay: send guide delivery email to submitter
+              • After 24 hrs: send follow-up email with soft consultation invite
+              • Log: email_1_sent, email_2_sent
+
+            All delay logic lives in Apps Script (time-based triggers).
+            Frontend submits and shows confirmation only. No delay logic here.
+            ================================================================
+          -->
+
+          <form class="contact-form" id="contact-form" novalidate aria-label="Contact and request form">
+
+            <!-- [3] SECRET TOKEN — Replace value before launch -->
+            <input type="hidden" name="secret_token" value="UynY5pZCu44kKs0eqfb58e7JNuc5zw6PgQRgXYx6" />
+
+            <!-- ── Interest Type Toggle
+                 Default: Consultation (active/primary)
+                 Guide Only: secondary option
+                 Value is written to hidden input and read by JS payload builder
+            ── -->
+            <div>
+              <span class="interest-toggle-label">What are you interested in?</span>
+              <div class="interest-toggle" role="group" aria-label="Select your interest">
+                <button
+                  type="button"
+                  class="interest-btn btn-consultation"
+                  id="btn-consultation"
+                  aria-pressed="true"
+                >
+                  Schedule Free<br>Strategy Session
+                </button>
+                <button
+                  type="button"
+                  class="interest-btn btn-guide"
+                  id="btn-guide"
+                  aria-pressed="false"
+                >
+                  Get the<br>Free AI Guide
+                </button>
+              </div>
+              <!-- Hidden input carries interest_type value into POST payload -->
+              <input type="hidden" id="interest_type_hidden" name="interest_type" value="Consultation" />
+            </div>
+            <!-- Consultation bonus callout — updates based on active selection -->
+            <p id="toggle-note-consultation" style="font-size:0.78rem; color: rgba(255,255,255,0.32); margin-top:8px; line-height:1.5;">
+              ✦ &nbsp;The free 2026 AI guide is included with every consultation request.
+            </p>
+            <p id="toggle-note-guide" style="font-size:0.78rem; color: rgba(255,255,255,0.32); margin-top:8px; line-height:1.5; display:none;">
+              ✦ &nbsp;Just want the guide for now? No problem — your copy will arrive by email shortly after submitting.
+            </p>
+
+            <!-- ── Name + Company ── -->
+            <div class="form-row">
+              <div class="field">
+                <label for="fname">Full Name <span aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="fname"
+                  name="name"
+                  placeholder="Jane Smith"
+                  required
+                  autocomplete="name"
+                  aria-required="true"
+                />
+              </div>
+              <div class="field">
+                <label for="company">Company Name</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  placeholder="Your Business Name"
+                  autocomplete="organization"
+                />
+              </div>
+            </div>
+
+            <!-- ── Email + Phone ── -->
+            <div class="form-row">
+              <div class="field">
+                <label for="email">Email Address <span aria-hidden="true">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@yourbusiness.com"
+                  required
+                  autocomplete="email"
+                  aria-required="true"
+                />
+              </div>
+              <div class="field">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="(615) 555-0100"
+                  autocomplete="tel"
+                />
+              </div>
+            </div>
+
+            <!-- ── Message ── -->
+            <div class="field">
+              <label for="message">Tell us about your business</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Briefly describe what you do, what challenges you're facing, or what you'd like to improve."
+              ></textarea>
+            </div>
+
+            <!-- ── Consent Checkboxes ── -->
+            <!-- Both values (consent_terms, consent_sms) are included in POST body -->
+            <div class="consent-group" role="group" aria-label="Required agreements">
+
+              <div class="consent-item">
+                <input
+                  type="checkbox"
+                  id="consent_terms"
+                  name="consent_terms"
+                  value="true"
+                  required
+                  aria-required="true"
+                />
+                <label for="consent_terms">
+                  I agree to the <a href="/terms/" target="_blank" rel="noopener">Terms of Service</a> and <a href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>. <span aria-hidden="true">*</span>
+                </label>
+              </div>
+
+              <div class="consent-item">
+                <input
+                  type="checkbox"
+                  id="consent_sms"
+                  name="consent_sms"
+                  value="true"
+                  required
+                  aria-required="true"
+                />
+                <label for="consent_sms">
+                  I consent to receive email and SMS communications from AI Strategy US, LLC related to my inquiry. I understand I can opt out at any time. <span aria-hidden="true">*</span>
+                </label>
+              </div>
+
+            </div>
+
+            <!-- [1] TURNSTILE SITE KEY — Replace data-sitekey value below -->
+            <div
+              class="cf-turnstile"
+              data-sitekey="0x4AAAAAACkhxaYe1Yc_DQHU"
+              data-theme="dark"
+              aria-label="Security verification"
+            ></div>
+
+            <button type="submit" class="form-submit" id="submit-btn">
+              Submit
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       FOOTER
+  ========================= -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#" class="footer-logo">AI Strategy<span class="accent"> US</span></a>
+        <p>AI Strategy US, LLC &mdash; Nashville, TN &mdash; Serving Businesses Nationwide</p>
+        <p>&copy; <span id="footer-year"></span> AI Strategy US, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========================
+       JAVASCRIPT
+  ========================= -->
+  <script>
+    'use strict';
+
+    // ---- FOOTER YEAR ----
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ================================================================
+    // CONFIGURATION — Replace all placeholders before going live
+    // ================================================================
+
+    // [2] GOOGLE APPS SCRIPT WEB APP URL
+    // Apps Script receives POST, writes to Google Sheets, triggers emails/SMS
+    const GOOGLE_WEBAPP_URL = 'https://ai-strategy-form-main.aistrategyus.workers.dev/';
+
+    // [4] CALENDAR SCHEDULING LINK
+    // Displayed inline in the confirmation message for Consultation submissions
+    // so the user can book immediately without waiting for the follow-up email
+    const CALENDAR_URL = 'YOUR_CALENDAR_LINK';
+
+    // ================================================================
+
+    // ---- ELEMENT REFERENCES ----
+    const form           = document.getElementById('contact-form');
+    const statusEl       = document.getElementById('form-status');
+    const submitBtn      = document.getElementById('submit-btn');
+    const descSession    = document.getElementById('desc-session');
+    const descGuide      = document.getElementById('desc-guide');
+    const interestHidden   = document.getElementById('interest_type_hidden');
+    const btnConsult       = document.getElementById('btn-consultation');
+    const btnGuide         = document.getElementById('btn-guide');
+    const noteConsultation = document.getElementById('toggle-note-consultation');
+    const noteGuide        = document.getElementById('toggle-note-guide');
+
+    // ---- INTEREST TYPE TOGGLE
+    // Consultation is active by default — no action needed on load.
+    // Clicking either button updates the hidden input, swaps left-column
+    // description, updates the submit label, and adjusts button styles.
+
+    function setInterest(type) {
+      if (type === 'Consultation') {
+        interestHidden.value = 'Consultation';
+
+        // Button states
+        btnConsult.classList.remove('inactive');
+        btnConsult.setAttribute('aria-pressed', 'true');
+        btnGuide.classList.remove('active');
+        btnGuide.setAttribute('aria-pressed', 'false');
+
+        // Left-column swap
+        descSession.style.display = 'block';
+        descGuide.style.display   = 'none';
+
+        // Toggle note swap
+        noteConsultation.style.display = 'block';
+        noteGuide.style.display        = 'none';
+
+        // Submit label
+        submitBtn.textContent = 'Schedule My Free Strategy Session';
+
+      } else {
+        interestHidden.value = 'Guide Only';
+
+        // Button states
+        btnConsult.classList.add('inactive');
+        btnConsult.setAttribute('aria-pressed', 'false');
+        btnGuide.classList.add('active');
+        btnGuide.setAttribute('aria-pressed', 'true');
+
+        // Left-column swap
+        descSession.style.display = 'none';
+        descGuide.style.display   = 'block';
+
+        // Toggle note swap
+        noteConsultation.style.display = 'none';
+        noteGuide.style.display        = 'block';
+
+        // Submit label
+        submitBtn.textContent = 'Send Me the Free Guide';
+      }
+    }
+
+    btnConsult.addEventListener('click', function () { setInterest('Consultation'); });
+    btnGuide.addEventListener('click',   function () { setInterest('Guide Only'); });
+
+    // ---- HERO GUIDE LINK — scrolls to form and activates guide button ----
+    document.getElementById('hero-guide-link').addEventListener('click', function () {
+      setInterest('Guide Only');
+    });
+
+    // ---- GUIDE TEASER CTA — same behavior ----
+    document.getElementById('teaser-guide-link').addEventListener('click', function () {
+      setInterest('Guide Only');
+    });
+
+    // ---- FORM SUBMISSION ----
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // -- Validate: interest_type (always has a value since Consultation is default) --
+      const interestType = (interestHidden.value || '').trim();
+      if (!interestType) {
+        showStatus('error', 'Please select your interest above.');
+        return;
+      }
+
+      // -- Validate: name --
+      const nameField = form.querySelector('[name="name"]');
+      const name = (nameField.value || '').trim();
+      if (!name) {
+        showStatus('error', 'Please enter your full name.');
+        nameField.focus();
+        return;
+      }
+
+      // -- Validate: email --
+      const emailField = form.querySelector('[name="email"]');
+      const email = (emailField.value || '').trim();
+      if (!email || !isValidEmail(email)) {
+        showStatus('error', 'Please enter a valid email address.');
+        emailField.focus();
+        return;
+      }
+
+      // -- Validate: consent_terms checkbox --
+      const consentTermsBox = form.querySelector('[name="consent_terms"]');
+      if (!consentTermsBox.checked) {
+        showStatus('error', 'Please agree to the Terms of Service and Privacy Policy to continue.');
+        consentTermsBox.focus();
+        return;
+      }
+
+      // -- Validate: consent_sms checkbox --
+      const consentSmsBox = form.querySelector('[name="consent_sms"]');
+      if (!consentSmsBox.checked) {
+        showStatus('error', 'Please confirm your consent to receive communications to continue.');
+        consentSmsBox.focus();
+        return;
+      }
+
+      // -- Validate: Cloudflare Turnstile --
+      const turnstileInput = form.querySelector('[name="cf-turnstile-response"]');
+      const turnstileToken = turnstileInput ? turnstileInput.value : '';
+      if (!turnstileToken) {
+        showStatus('error', 'Please complete the security verification above.');
+        return;
+      }
+
+      // Disable button while request is in flight
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'Sending…';
+      hideStatus();
+
+      // ----------------------------------------------------------------
+      // BUILD POST PAYLOAD
+      // All fields match the Google Sheet column headers exactly.
+      //
+      // Fields written directly from form:
+      //   name, email, phone, company, message,
+      //   interest_type, consent_terms, consent_sms
+      //
+      // Backend status fields (set by Apps Script, not from frontend):
+      //   email_1_sent    — first email sent (guide delivery or consultation intro)
+      //   email_2_sent    — 24-hour follow-up email sent
+      //   sms_sent        — SMS sent to owner (Consultation flow only)
+      //   calendar_booked — marked true after scheduling link is used
+      // ----------------------------------------------------------------
+      const payload = {
+        // ── Core form fields ──
+        name:            name,
+        email:           email,
+        phone:           (form.querySelector('[name="phone"]').value || '').trim(),
+        company:         (form.querySelector('[name="company"]').value || '').trim(),
+        message:         (form.querySelector('[name="message"]').value || '').trim(),
+
+        // ── Interest type — drives backend automation routing ──
+        // "Consultation" → SMS + consultation email after 5-10 min + 24hr follow-up
+        // "Guide Only"   → Guide email after 5-10 min + 24hr follow-up (no SMS)
+        interest_type:   interestType,
+        source_page:     'main',
+
+        // ── Consent fields — stored in Sheets for compliance records ──
+        consent_terms:   consentTermsBox.checked ? 'true' : 'false',
+        consent_sms:     consentSmsBox.checked   ? 'true' : 'false',
+
+        // ── Security & meta ──
+        token:           form.querySelector('[name="secret_token"]').value,
+        turnstile_token: turnstileToken,
+        page_url:        window.location.href,
+        submitted_at:    new Date().toISOString()
+      };
+
+      // ----------------------------------------------------------------
+      // POST TO GOOGLE APPS SCRIPT
+      // Apps Script handles:
+      //   1. Verifying secret_token
+      //   2. Logging all fields to Google Sheets
+      //   3. Routing automation based on interest_type:
+      //
+      //   interest_type = "Consultation":
+      //     → Immediately: send SMS to owner
+      //     → After 5–10 min: send consultation email to submitter
+      //       (includes calendar booking link + guide as bonus)
+      //     → After 24 hrs: send follow-up if calendar_booked = false
+      //
+      //   interest_type = "Guide Only":
+      //     → No SMS
+      //     → After 5–10 min: send guide delivery email to submitter
+      //     → After 24 hrs: send follow-up email with soft consultation invite
+      //
+      // All delay logic is implemented via Apps Script time-based triggers.
+      // This frontend does NOT implement any delays.
+      // ----------------------------------------------------------------
+      try {
+        const response = await fetch(GOOGLE_WEBAPP_URL, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+
+          // ── SUCCESS: interest_type = Consultation ──
+          // Show calendar link immediately so the user can book without
+          // waiting for the follow-up email
+          if (interestType === 'Consultation') {
+            statusEl.className = 'form-status success';
+            statusEl.innerHTML =
+              '<strong>You\'re all set.</strong> We\'ve received your request.' +
+              // [4] CALENDAR_URL is inserted here — schedule now option
+              '<a href="' + CALENDAR_URL + '" class="calendar-cta" target="_blank" rel="noopener noreferrer">' +
+              '→ Schedule Your Strategy Session Now' +
+              '</a>' +
+              '<span class="status-sub">You can schedule now using the link above, or check your email shortly for next steps.</span>';
+            statusEl.style.display = 'block';
+            statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+          // ── SUCCESS: interest_type = Guide Only ──
+          // Guide is delivered via email only — no link shown here
+          } else {
+            showStatus(
+              'success',
+              'Thank you — your guide will arrive shortly in your email. Check your inbox (and spam folder, just in case) within the next few minutes.'
+            );
+          }
+
+          // Reset form to default (Consultation) state
+          form.reset();
+          setInterest('Consultation');
+
+          // Reset Turnstile widget so form can be reused if needed
+          if (window.turnstile) { window.turnstile.reset(); }
+
+        } else {
+          throw new Error('Non-OK response: ' + response.status);
+        }
+
+      } catch (err) {
+        console.error('Submission error:', err);
+        showStatus('error', 'Something went wrong while submitting your request. Please try again in a moment.');
+      } finally {
+        submitBtn.disabled = false;
+        if (submitBtn.textContent === 'Sending…') {
+          submitBtn.textContent = 'Submit';
+        }
+      }
+    });
+
+    // ---- HELPERS ----
+    function showStatus(type, msg) {
+      statusEl.className     = 'form-status ' + type;
+      statusEl.textContent   = msg;
+      statusEl.style.display = 'block';
+      statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function hideStatus() {
+      statusEl.className     = 'form-status';
+      statusEl.textContent   = '';
+      statusEl.style.display = 'none';
+    }
+
+    function isValidEmail(v) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    }
+  </script>
+
+</body>
+</html>
