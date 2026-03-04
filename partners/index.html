@@ -3,840 +3,1505 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Partner Sheet | AI Strategy US</title>
-  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <meta property="og:title" content="Partner with AI Strategy US LLC">
+  <meta property="og:description" content="Explore partnership opportunities with AI Strategy US LLC. We work with consultants, agencies, and technology providers.">
+  <meta property="og:image" content="https://ai-strategy.us/og-image-partners.png">
+  <meta property="og:url" content="https://ai-strategy.us/partners/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ai-strategy.us/og-image-partners.png">
+  <title>Partner With Us | AI Strategy US</title>
+  <meta name="description" content="AI Strategy US partners with full-service AI consulting agencies and implementation teams to extend delivery capacity and serve more clients." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ai-strategy.us/partners/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Partner With Us | AI Strategy US" />
+  <meta property="og:description" content="We partner with full-service AI consulting agencies and implementation teams. Learn about our collaboration models." />
+  <meta property="og:url" content="https://ai-strategy.us/partners/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <style>
     /* ===========================
        RESET & BASE
     =========================== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     html {
-      color-scheme: light only;
+      scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      background: #ffffff !important;
-      color: #1a2033 !important;
-      font-size: 14px;
-      line-height: 1.65;
+      color: #1a2033;
+      background: #ffffff;
+      line-height: 1.6;
+      font-size: 16px;
     }
 
+    img { max-width: 100%; display: block; }
+
+    /* ===========================
+       CSS VARIABLES
+    =========================== */
     :root {
-      --dark:    #0E1525;
-      --dark-2:  #14203A;
-      --blue:    #2563EB;
-      --gold:    #C09A3E;
-      --green:   #34D399;
-      --border:  #E2E6EF;
-      --light:   #F5F6F9;
-      --muted:   #4B5563;
+      --dark:      #0E1525;
+      --dark-2:    #14203A;
+      --dark-3:    #1B2B4A;
+      --blue:      #2563EB;
+      --blue-h:    #3B82F6;
+      --gold:      #C09A3E;
+      --green:     #34D399;
+      --light-bg:  #F5F6F9;
+      --border:    #E2E6EF;
+      --muted:     #6B7280;
+      --muted-lt:  #9CA3AF;
+      --white:     #ffffff;
     }
 
     /* ===========================
-       PAGE SHELL
+       TYPOGRAPHY
     =========================== */
-    .page {
-      max-width: 780px;
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+    h2 { font-size: clamp(1.65rem, 3.5vw, 2.35rem); }
+    h3 { font-size: clamp(1rem, 2vw, 1.2rem); }
+
+    .section-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .section-label.gold { color: var(--gold); }
+
+    /* ===========================
+       LAYOUT
+    =========================== */
+    .container {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 48px 40px 64px;
+      padding: 0 24px;
+    }
+
+    section { padding: 84px 0; }
+
+    /* ===========================
+       BUTTONS
+    =========================== */
+    .btn-primary {
+      display: inline-block;
+      background: var(--blue);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-primary:hover {
+      background: var(--blue-h);
+      transform: translateY(-1px);
     }
 
     /* ===========================
-       HEADER / COVER
+       NAVIGATION
     =========================== */
-    .sheet-header {
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(14,21,37,0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+    .nav-logo .accent { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--blue);
+      color: #fff;
+      padding: 9px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--blue-h); }
+
+    /* ===========================
+       HERO
+    =========================== */
+    #hero {
       background: var(--dark);
-      border-radius: 10px;
-      padding: 36px 36px 32px;
-      margin-bottom: 36px;
+      color: #fff;
+      padding: 148px 0 108px;
       position: relative;
       overflow: hidden;
     }
 
-    .sheet-header::before {
-      content: '';
+    .hero-glow-1 {
       position: absolute;
-      top: -80px; right: -80px;
-      width: 280px; height: 280px;
-      background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%);
+      top: -180px; right: -180px;
+      width: 680px; height: 680px;
+      background: radial-gradient(circle, rgba(37,99,235,0.13) 0%, transparent 68%);
       pointer-events: none;
     }
 
-    .sheet-header::after {
-      content: '';
+    .hero-glow-2 {
       position: absolute;
-      bottom: -60px; left: -40px;
-      width: 200px; height: 200px;
-      background: radial-gradient(circle, rgba(192,154,62,0.09) 0%, transparent 70%);
+      bottom: -120px; left: -80px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(192,154,62,0.07) 0%, transparent 68%);
       pointer-events: none;
     }
 
-    .header-inner { position: relative; z-index: 2; }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+    }
 
-    .brand {
-      font-size: 0.72rem;
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 14px;
+      margin-bottom: 22px;
     }
 
-    .sheet-header h1 {
-      font-size: 1.65rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
+    .hero-content h1 {
       color: #fff;
-      margin-bottom: 10px;
+      margin-bottom: 22px;
+      max-width: 680px;
     }
 
-    .sheet-header .tagline {
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.48);
-      line-height: 1.6;
-      max-width: 500px;
+    .hero-content h1 em {
+      font-style: normal;
+      color: var(--gold);
     }
 
-    .header-meta {
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.17rem);
+      color: rgba(255,255,255,0.60);
+      max-width: 580px;
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
       display: flex;
       gap: 24px;
-      margin-top: 22px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
-    .header-meta span {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.28);
+    .hero-credibility {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 9px;
+      color: rgba(255,255,255,0.32);
+      font-size: 0.875rem;
+      margin-top: 28px;
     }
 
-    .header-meta span::before {
+    .hero-credibility::before {
       content: '';
       display: inline-block;
-      width: 5px; height: 5px;
+      width: 6px; height: 6px;
       background: var(--gold);
       border-radius: 50%;
+      flex-shrink: 0;
     }
 
     /* ===========================
-       CONFIDENTIAL NOTICE
+       SECTION HEADER
     =========================== */
-    .confidential-bar {
-      background: rgba(192,154,62,0.07);
-      border: 1px solid rgba(192,154,62,0.2);
-      border-radius: 6px;
-      padding: 10px 16px;
-      font-size: 0.75rem;
-      color: #92700a;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      margin-bottom: 36px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .section-header {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 56px;
     }
+    .section-header h2 { color: var(--dark); margin-bottom: 14px; }
+    .section-header p  { color: var(--muted); font-size: 1.04rem; }
 
     /* ===========================
-       SECTIONS
+       WHO WE PARTNER WITH
     =========================== */
-    .section {
-      margin-bottom: 36px;
+    #partner-fit { background: var(--light-bg); }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
     }
 
-    .section-eyebrow {
-      font-size: 0.65rem;
+    .fit-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 26px;
+    }
+
+    .fit-card.good {
+      border-top: 3px solid var(--green);
+    }
+
+    .fit-card.bad {
+      border-top: 3px solid rgba(239,68,68,0.5);
+    }
+
+    .fit-card-label {
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 8px;
+      margin-bottom: 14px;
       display: block;
     }
 
-    .section h2 {
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+    .fit-card.good .fit-card-label { color: #059669; }
+    .fit-card.bad  .fit-card-label { color: #dc2626; }
+
+    .fit-card h3 {
       color: var(--dark);
       margin-bottom: 14px;
-      line-height: 1.2;
+      font-size: 1rem;
     }
 
-    .section p {
-      font-size: 0.89rem;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 10px;
-    }
-    .section p:last-child { margin-bottom: 0; }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 32px 0;
-    }
-
-    /* ===========================
-       OVERVIEW BOX
-    =========================== */
-    .overview-box {
-      background: var(--light);
-      border-left: 3px solid var(--blue);
-      border-radius: 0 8px 8px 0;
-      padding: 18px 20px;
-      margin-bottom: 10px;
-    }
-
-    .overview-box p {
-      font-size: 0.89rem;
-      color: #374151;
-      line-height: 1.7;
-      margin-bottom: 0;
-    }
-
-    /* ===========================
-       MODEL CARDS
-    =========================== */
-    .models-stack {
+    .fit-list {
+      list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 9px;
     }
 
-    .model-row {
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      overflow: hidden;
-    }
-
-    .model-header {
+    .fit-list li {
       display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 18px;
-      background: var(--dark-2);
-    }
-
-    .model-num-badge {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-
-    .model-row.tier-1 .model-num-badge { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
-    .model-row.tier-2 .model-num-badge { background: rgba(37,99,235,0.25);   color: #93c5fd; }
-    .model-row.tier-3 .model-num-badge { background: rgba(192,154,62,0.2);   color: var(--gold); }
-
-    .model-header-text h3 {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 2px;
-      letter-spacing: -0.01em;
-    }
-
-    .model-header-text span {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .model-row.tier-1 .model-header-text span { color: rgba(255,255,255,0.3); }
-    .model-row.tier-2 .model-header-text span { color: rgba(147,197,253,0.7); }
-    .model-row.tier-3 .model-header-text span { color: rgba(192,154,62,0.75); }
-
-    .model-body {
-      padding: 16px 18px;
-      background: #fff;
-    }
-
-    .model-body p {
-      font-size: 0.855rem;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.92rem;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.55;
+    }
+
+    .fit-list li .icon {
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-style: normal;
+    }
+
+    /* ===========================
+       HOW IT WORKS
+    =========================== */
+    #how-it-works { background: var(--light-bg); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 26px 22px;
+      position: relative;
+    }
+
+    .step-bg-num {
+      position: absolute;
+      top: 12px; right: 14px;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: rgba(0,0,0,0.04);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      pointer-events: none;
+    }
+
+    .step-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .step h3 {
+      color: var(--dark);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ===========================
+       IDEAL PARTNER
+    =========================== */
+    #ideal-partner { background: var(--white); }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .criteria-card {
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 22px;
+    }
+
+    .criteria-icon {
+      font-size: 1.35rem;
       margin-bottom: 12px;
     }
 
-    .model-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .model-list li {
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-      font-size: 0.84rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .model-list li::before {
-      content: '✓';
-      color: #059669;
-      font-weight: 700;
-      flex-shrink: 0;
-      font-size: 0.75rem;
-      margin-top: 1px;
-    }
-
-    /* ===========================
-       SCORING TABLE
-    =========================== */
-    .score-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    .score-item {
-      background: var(--light);
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      padding: 12px 12px 10px;
-      text-align: center;
-    }
-
-    .score-item .score-label {
-      font-size: 0.72rem;
-      font-weight: 700;
+    .criteria-card h3 {
+      font-size: 0.97rem;
       color: var(--dark);
-      line-height: 1.3;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
+      font-weight: 700;
     }
 
-    .score-item .score-range {
-      font-size: 0.68rem;
-      color: var(--blue);
-      font-weight: 600;
+    .criteria-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
     }
 
     /* ===========================
-       PROCESS LIST
+       FAQ
     =========================== */
-    .process-list {
-      list-style: none;
+    #faq { background: var(--light-bg); }
+
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 0;
     }
 
-    .process-list li {
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-q {
       display: flex;
-      gap: 14px;
-      align-items: flex-start;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 4px;
+      cursor: pointer;
+      gap: 16px;
     }
 
-    .process-num {
-      width: 22px; height: 22px;
-      min-width: 22px;
-      background: var(--blue);
-      color: #fff;
-      border-radius: 50%;
+    .faq-q h3 {
+      font-size: 0.97rem;
+      color: var(--dark);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.65rem;
-      font-weight: 800;
-      margin-top: 1px;
-    }
-
-    .process-text {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .process-text strong {
-      color: var(--dark);
-      font-weight: 700;
-    }
-
-    /* ===========================
-       IDEAL PARTNER / CRITERIA
-    =========================== */
-    .criteria-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .criteria-list li {
-      display: grid;
-      grid-template-columns: 18px 1fr;
-      gap: 10px;
-      align-items: start;
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .criteria-list li .ci {
-      flex-shrink: 0;
-      font-style: normal;
-      margin-top: 1px;
+      color: var(--muted-lt);
       font-size: 0.85rem;
-      line-height: 1.55;
+      transition: transform 0.2s;
     }
 
-    .criteria-list li.good .ci { color: #059669; font-weight: 700; }
-    .criteria-list li.bad  .ci { color: #dc2626; font-weight: 700; }
-
-    .criteria-list li .ci-text { line-height: 1.55; }
-
-    /* ===========================
-       EXPECTATIONS TABLE
-    =========================== */
-    .expect-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
     }
 
-    .expect-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 14px 16px;
-    }
-
-    .expect-card h4 {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 7px;
-      letter-spacing: -0.01em;
-    }
-
-    .expect-card p {
-      font-size: 0.83rem;
+    .faq-a {
+      display: none;
+      padding: 0 4px 20px;
+      font-size: 0.92rem;
       color: var(--muted);
-      line-height: 1.6;
-      margin: 0;
+      line-height: 1.72;
     }
+
+    .faq-item.open .faq-a { display: block; }
 
     /* ===========================
-       NEXT STEPS
+       PARTNER FORM SECTION
     =========================== */
-    .next-steps-box {
-      background: var(--dark);
-      border-radius: 10px;
-      padding: 28px 28px 24px;
+    #partner-form { background: var(--dark-2); }
+
+    #partner-form .section-header h2 { color: #fff; }
+    #partner-form .section-header p  { color: rgba(255,255,255,0.50); }
+
+    .partner-form-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.55fr;
+      gap: 60px;
+      align-items: start;
     }
 
-    .next-steps-box h2 {
-      color: #fff;
+    .partner-form-info h3 {
       font-size: 1rem;
-      margin-bottom: 18px;
-    }
-
-    .next-steps-box p {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.48);
-      line-height: 1.65;
-      margin-bottom: 14px;
-    }
-
-    .next-steps-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      color: rgba(255,255,255,0.75);
+      font-weight: 600;
       margin-bottom: 20px;
     }
 
-    .next-steps-list li {
+    .partner-info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .partner-info-list li {
       display: flex;
       gap: 10px;
       align-items: flex-start;
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.55);
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.58);
       line-height: 1.55;
     }
 
-    .next-steps-list li::before {
-      content: '→';
-      color: var(--gold);
+    .partner-info-list li::before {
+      content: '✓';
+      color: var(--green);
       font-weight: 700;
       flex-shrink: 0;
+      margin-top: 1px;
     }
 
-    .booking-placeholder {
-      display: inline-block;
-      padding: 10px 20px;
+    .partner-note {
+      margin-top: 28px;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px;
+      font-size: 0.855rem;
+      color: rgba(255,255,255,0.34);
+      line-height: 1.6;
+    }
+
+    /* ===========================
+       FORM
+    =========================== */
+    .contact-form { display: flex; flex-direction: column; gap: 15px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 6px; }
+
+    label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.42);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    textarea,
+    select {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 7px;
+      padding: 11px 14px;
+      color: #fff;
+      font-size: 0.94rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: rgba(255,255,255,0.18);
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--blue);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .select-wrapper { position: relative; }
+    .select-wrapper::after {
+      content: '▾';
+      position: absolute;
+      right: 14px; top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255,255,255,0.35);
+      pointer-events: none;
+      font-size: 0.85rem;
+    }
+    select option { background: #1a2847; color: #fff; }
+
+    textarea { resize: vertical; min-height: 110px; }
+
+    /* Checkbox group */
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+    }
+
+    .checkbox-group .group-label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.42);
+      margin-bottom: 4px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .check-item input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      min-width: 15px;
+      margin-top: 2px;
+      cursor: pointer;
+      accent-color: var(--blue);
+      -webkit-appearance: auto;
+      appearance: auto;
+      padding: 0;
+      background: none;
+      border: none;
+    }
+
+    .check-item label {
+      font-size: 0.855rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.50);
+      letter-spacing: 0;
+      cursor: pointer;
+      line-height: 1.5;
+    }
+
+    .cf-turnstile { margin: 2px 0; }
+
+    .form-submit {
       background: var(--blue);
       color: #fff;
-      border-radius: 6px;
-      font-size: 0.875rem;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 7px;
+      font-size: 1rem;
       font-weight: 700;
-      text-decoration: none;
-      /* [PLACEHOLDER] Replace href with booking/calendar link when available */
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, transform 0.15s;
+      width: 100%;
+    }
+    .form-submit:hover:not(:disabled) {
+      background: var(--blue-h);
+      transform: translateY(-1px);
+    }
+    .form-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .form-status {
+      padding: 16px 18px;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      display: none;
+    }
+    .form-status.success {
+      background: rgba(52,211,153,0.1);
+      border: 1px solid rgba(52,211,153,0.28);
+      color: #34D399;
+      display: block;
+    }
+    .form-status.error {
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.28);
+      color: #FCA5A5;
+      display: block;
     }
 
-    .booking-note {
-      margin-top: 12px;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.22);
+    /* Consent items */
+    .consent-group {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+    }
+
+    .consent-item {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+    }
+
+    .consent-item input[type="checkbox"] {
+      width: 16px; height: 16px; min-width: 16px;
+      margin-top: 2px; cursor: pointer;
+      accent-color: var(--blue);
+      -webkit-appearance: auto; appearance: auto;
+      padding: 0; background: none; border: none;
+    }
+
+    .consent-item label {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.38);
+      letter-spacing: 0;
+      cursor: pointer;
+      line-height: 1.55;
+    }
+
+    .consent-item label a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .consent-item label a:hover { color: var(--gold); }
+
+    .partner-sheet-note {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.30);
+      line-height: 1.55;
+      padding: 12px 14px;
+      background: rgba(192,154,62,0.06);
+      border: 1px solid rgba(192,154,62,0.15);
+      border-radius: 6px;
     }
 
     /* ===========================
        FOOTER
     =========================== */
-    .sheet-footer {
-      margin-top: 36px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 32px 0;
+    }
+
+    .footer-inner {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 12px;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
     }
 
-    .sheet-footer .brand-footer {
-      font-size: 0.8rem;
+    .footer-logo {
+      text-decoration: none;
+      color: #fff;
       font-weight: 700;
-      color: var(--dark);
+      font-size: 1rem;
     }
-    .sheet-footer .brand-footer .accent { color: var(--gold); }
+    .footer-logo .accent { color: var(--gold); }
 
-    .sheet-footer .footer-note {
-      font-size: 0.75rem;
-      color: #9CA3AF;
-      text-align: right;
-      line-height: 1.5;
+    .footer-inner p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.22);
     }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 4px;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.6); }
 
     /* ===========================
-       PRINT STYLES
+       RESPONSIVE
     =========================== */
-    @media print {
-      body { font-size: 12px; }
-      .page { padding: 0; max-width: 100%; }
-
-      .sheet-header {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        background: #0E1525 !important;
-        border-radius: 6px;
-      }
-
-      .model-header {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        background: #14203A !important;
-      }
-
-      .next-steps-box {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        background: #0E1525 !important;
-        border-radius: 6px;
-      }
-
-      .section { page-break-inside: avoid; }
-      .model-row { page-break-inside: avoid; }
-      .expect-grid { page-break-inside: avoid; }
-
-      @page {
-        margin: 18mm 16mm;
-        size: letter portrait;
-      }
+    @media (max-width: 960px) {
+      .steps-grid    { grid-template-columns: 1fr 1fr 1fr; }
+      .criteria-grid { grid-template-columns: 1fr 1fr; }
     }
 
-    @media (max-width: 600px) {
-      .page { padding: 28px 20px 48px; }
-      .expect-grid { grid-template-columns: 1fr; }
-      .sheet-footer { flex-direction: column; align-items: flex-start; }
-      .sheet-footer .footer-note { text-align: left; }
+    @media (max-width: 768px) {
+      section { padding: 64px 0; }
+      #hero   { padding: 120px 0 80px; }
+
+      .fit-grid            { grid-template-columns: 1fr; }
+      .partner-form-layout { grid-template-columns: 1fr; gap: 44px; }
+      .form-row            { grid-template-columns: 1fr; }
+      .criteria-grid       { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 580px) {
+      .steps-grid    { grid-template-columns: 1fr; }
+      .hero-actions  { flex-direction: column; align-items: flex-start; gap: 16px; }
     }
   </style>
 </head>
 <body>
-<div class="page">
 
-  <!-- COVER HEADER -->
-  <div class="sheet-header">
-    <div class="header-inner">
-      <div class="brand">AI Strategy US, LLC &nbsp;·&nbsp; Partner Program</div>
-      <h1>Partner Sheet</h1>
-      <p class="tagline">An overview of our collaboration models, expectations, and what it means to work with us.</p>
-      <div class="header-meta">
-        <span>Confidential</span>
-        <span>For Partner Use Only</span>
-        <span>Not for Distribution</span>
+  <!-- NAVIGATION -->
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">AI Strategy<span class="accent"> US</span></a>
+      <a href="/#contact" class="nav-cta">Free Strategy Session</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Partner program introduction">
+    <div class="hero-glow-1" aria-hidden="true"></div>
+    <div class="hero-glow-2" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-eyebrow">Partner Program</span>
+        <h1>Extend Your Reach.<br>We Bring the <em>Opportunities.</em></h1>
+        <p class="hero-subtitle">
+          AI Strategy US partners with full-service AI consulting agencies and implementation teams. We generate inbound demand from small business owners and connect serious opportunities to the right delivery partners.
+        </p>
+        <div class="hero-actions">
+          <a href="#partner-form" class="btn-primary">Apply to Partner</a>
+        </div>
+        <p class="hero-credibility">Exclusive leads · Qualified opportunities · Collaborative delivery</p>
       </div>
     </div>
-  </div>
-
-  <!-- CONFIDENTIAL NOTICE -->
-  <div class="confidential-bar">
-    ⚠ &nbsp; Confidential — This document is intended solely for the recipient. Please do not share, forward, or distribute.
-  </div>
+  </section>
 
 
-  <!-- SECTION 1: ABOUT -->
-  <div class="section">
-    <span class="section-eyebrow">About Us</span>
-    <h2>Who We Are</h2>
-    <div class="overview-box">
-      <p>AI Strategy US, LLC is a consulting firm based in Nashville, Tennessee. We work directly with small business owners and operators across the United States to identify where AI can meaningfully improve how they run their business — and to build a clear, practical plan to get there.</p>
-    </div>
-    <p>Our focus is on practical outcomes, not theoretical strategy. We serve business owners and the managers running key workflows — people who need real solutions, not enterprise-level complexity. We generate consistent inbound demand from SMBs actively seeking AI guidance, and we partner with full-service agencies and implementation teams to ensure those clients get the delivery they need.</p>
-  </div>
+  <!-- WHO WE PARTNER WITH -->
+  <section id="partner-fit" aria-labelledby="fit-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Partner Fit</span>
+        <h2 id="fit-heading">We're selective about who we work with</h2>
+        <p>Our clients trust us to connect them with capable, professional teams. That means we only partner with agencies that can handle full-cycle delivery — not single-product vendors or point solutions.</p>
+      </div>
 
-  <hr class="divider" />
+      <div class="fit-grid">
 
-
-  <!-- SECTION 2: WHO THIS IS FOR -->
-  <div class="section">
-    <span class="section-eyebrow">Partner Fit</span>
-    <h2>Who This Program Is For</h2>
-    <p>We partner exclusively with full-service AI consulting agencies and implementation teams that can handle a client engagement from start to finish. This program is not designed for single-product vendors, SaaS resellers, or teams that only deliver one piece of an engagement.</p>
-
-    <ul class="criteria-list" style="margin-top: 12px;">
-      <li class="good"><span class="ci">✓</span> Full-service AI consulting agencies with end-to-end capability</li>
-      <li class="good"><span class="ci">✓</span> Engineering and implementation teams that deliver complete AI projects</li>
-      <li class="good"><span class="ci">✓</span> Teams experienced in discovery, scoping, build, integration, and ongoing support</li>
-      <li class="good"><span class="ci">✓</span> Agencies with a track record serving small and mid-size businesses</li>
-      <li class="good"><span class="ci">✓</span> Teams with current availability and capacity to take on new work</li>
-    </ul>
-
-    <p style="margin-top: 14px;"><strong style="color: var(--dark);">Outside current scope:</strong> Healthcare providers, private equity-backed companies, and businesses in heavily regulated industries require specialized compliance knowledge that falls outside our current operating model. We do not refer clients in these categories at this time.</p>
-  </div>
-
-  <hr class="divider" />
-
-
-  <!-- SECTION 3: COLLABORATION MODELS -->
-  <div class="section">
-    <span class="section-eyebrow">How We Work Together</span>
-    <h2>Three Collaboration Models</h2>
-    <p>Partners can participate in one or all three models depending on their capacity and preference. Commercial terms are negotiated case-by-case based on involvement, client scope, and delivery model.</p>
-
-    <div class="models-stack" style="margin-top: 16px;">
-
-      <!-- Model 1 -->
-      <div class="model-row tier-1">
-        <div class="model-header">
-          <div class="model-num-badge">01</div>
-          <div class="model-header-text">
-            <h3>Warm Lead Referrals</h3>
-            <span>Inbound Interest · Handed Off As-Is</span>
-          </div>
-        </div>
-        <div class="model-body">
-          <p>A business owner has expressed genuine interest in AI consulting through our intake process. Basic contact verification has been completed. The lead is passed to one partner for follow-up.</p>
-          <ul class="model-list">
-            <li>Verified contact information and source of inquiry</li>
-            <li>No discovery, process mapping, or budget validation completed</li>
-            <li>Delivered to one partner exclusively</li>
-            <li>Partner takes full responsibility for qualification and follow-up</li>
-            <li>Commercial terms: negotiated based on lead volume and arrangement</li>
+        <div class="fit-card good">
+          <span class="fit-card-label">✓ &nbsp;Strong Fit</span>
+          <h3>What we look for in a partner</h3>
+          <ul class="fit-list">
+            <li><span class="icon">✓</span> Full-service AI consulting agencies with end-to-end capability</li>
+            <li><span class="icon">✓</span> Engineering and implementation teams that deliver complete AI projects</li>
+            <li><span class="icon">✓</span> Teams experienced with discovery, scoping, build, and ongoing support</li>
+            <li><span class="icon">✓</span> Experience serving small and mid-size businesses</li>
+            <li><span class="icon">✓</span> Strong client communication and responsiveness</li>
+            <li><span class="icon">✓</span> Proven delivery track record — not early-stage</li>
+            <li><span class="icon">✓</span> Capacity to take on new client work</li>
           </ul>
         </div>
-      </div>
 
-      <!-- Model 2 -->
-      <div class="model-row tier-2">
-        <div class="model-header">
-          <div class="model-num-badge">02</div>
-          <div class="model-header-text">
-            <h3>Qualified Opportunities</h3>
-            <span>Discovery Completed · Opportunity Brief Included</span>
-          </div>
-        </div>
-        <div class="model-body">
-          <p>We've completed a structured discovery conversation with the prospect and produced a written Opportunity Brief — typically 1 to 2 pages — that gives your team a clear picture of the client before you commit to engagement.</p>
-          <ul class="model-list">
-            <li>Decision-maker path and authority assessment</li>
-            <li>Business process map and current tools/data environment</li>
-            <li>Estimated volumes, pain points, and desired outcomes</li>
-            <li>Budget band, timeline, and key constraints</li>
-            <li>Implementation readiness assessment</li>
-            <li>Recommended handoff approach and suggested first step</li>
-            <li>Partner may accept or decline the opportunity — no obligation</li>
+        <div class="fit-card bad">
+          <span class="fit-card-label">✗ &nbsp;Not a Fit</span>
+          <h3>What we can't work with</h3>
+          <ul class="fit-list">
+            <li><span class="icon">✗</span> Single-product vendors or SaaS resellers</li>
+            <li><span class="icon">✗</span> Agencies that only deliver one narrow tool or platform</li>
+            <li><span class="icon">✗</span> Teams without implementation or post-delivery support capability</li>
+            <li><span class="icon">✗</span> Healthcare, private equity, or highly regulated industry specialists — outside current scope</li>
+            <li><span class="icon">✗</span> Enterprise-only agencies — our clients are small business operators</li>
+            <li><span class="icon">✗</span> Agencies without availability or at full capacity</li>
           </ul>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" aria-labelledby="process-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">The Process</span>
+        <h2 id="process-heading">Simple. Structured. Straightforward.</h2>
+        <p>From initial inquiry to ongoing collaboration — here's exactly what the partnership process looks like.</p>
       </div>
 
-      <!-- Model 3 -->
-      <div class="model-row tier-3">
-        <div class="model-header">
-          <div class="model-num-badge">03</div>
-          <div class="model-header-text">
-            <h3>Co-Sell Partnership</h3>
-            <span>Active Collaboration · Partner Delivers</span>
+      <div class="steps-grid">
+
+        <div class="step">
+          <div class="step-bg-num" aria-hidden="true">01</div>
+          <div class="step-tag">Step 1</div>
+          <h3>Partner Inquiry</h3>
+          <p>Submit the form below. We review every application and follow up with qualified agencies within a few business days.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-bg-num" aria-hidden="true">02</div>
+          <div class="step-tag">Step 2</div>
+          <h3>Fit Conversation</h3>
+          <p>A brief call to understand your team's capabilities, capacity, and delivery model. We'll confirm whether the partnership makes sense for both sides.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-bg-num" aria-hidden="true">03</div>
+          <div class="step-tag">Step 3</div>
+          <h3>Align on Approach</h3>
+          <p>We discuss your team's capacity, client profile, and which collaboration model — warm leads, qualified opportunities, or co-sell — is the right starting point.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-bg-num" aria-hidden="true">04</div>
+          <div class="step-tag">Step 4</div>
+          <h3>Lead Delivery</h3>
+          <p>Opportunities are delivered with clear context and handoff expectations. Leads are exclusive — one partner per opportunity.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-bg-num" aria-hidden="true">05</div>
+          <div class="step-tag">Step 5</div>
+          <h3>Feedback Loop</h3>
+          <p>We debrief on outcomes, calibrate expectations, and refine the handoff process over time to make the partnership stronger.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- IDEAL PARTNER CRITERIA -->
+  <section id="ideal-partner" aria-labelledby="criteria-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What We Value</span>
+        <h2 id="criteria-heading">The qualities that make a great partner</h2>
+        <p>Beyond delivery capability, the partnerships that work best share a few consistent characteristics.</p>
+      </div>
+
+      <div class="criteria-grid">
+
+        <div class="criteria-card">
+          <div class="criteria-icon" aria-hidden="true">⚡</div>
+          <h3>Responsive</h3>
+          <p>Business owners move fast when they're motivated. Partners who follow up promptly and communicate clearly close more and waste less time on both sides.</p>
+        </div>
+
+        <div class="criteria-card">
+          <div class="criteria-icon" aria-hidden="true">🔧</div>
+          <h3>End-to-End Capable</h3>
+          <p>We need partners who can own the full engagement — discovery, build, integration, and support. Partial capabilities create gaps that hurt the client experience.</p>
+        </div>
+
+        <div class="criteria-card">
+          <div class="criteria-icon" aria-hidden="true">🤝</div>
+          <h3>Client-First</h3>
+          <p>Our reputation depends on the experience our shared clients have. Partners who prioritize client outcomes over short-term wins build the kind of relationships that generate referrals.</p>
+        </div>
+
+        <div class="criteria-card">
+          <div class="criteria-icon" aria-hidden="true">📋</div>
+          <h3>Process-Oriented</h3>
+          <p>Consistent handoffs, clear communication at each stage, and honest feedback when something isn't the right fit. Good process makes good partnerships.</p>
+        </div>
+
+        <div class="criteria-card">
+          <div class="criteria-icon" aria-hidden="true">📈</div>
+          <h3>Proven Track Record</h3>
+          <p>We look for agencies with completed client engagements they can speak to clearly. Early-stage teams without delivery history aren't the right fit at this time.</p>
+        </div>
+
+        <div class="criteria-card">
+          <div class="criteria-icon" aria-hidden="true">🔒</div>
+          <h3>Confidentiality</h3>
+          <p>Client information shared as part of any lead or opportunity is treated as confidential. Partners are expected to handle all shared data with professional discretion.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Common Questions</span>
+        <h2 id="faq-heading">Frequently asked questions</h2>
+      </div>
+
+      <div class="faq-list" role="list">
+
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+            <h3>What makes a partner a good fit?</h3>
+            <span class="faq-chevron" aria-hidden="true">▾</span>
+          </div>
+          <div class="faq-a">
+            The most important factor is end-to-end delivery capability. We're looking for agencies or teams that can handle a client from discovery through implementation and ongoing support — not teams that only cover one piece of the puzzle. Beyond that, responsiveness and client communication are the qualities that separate good partner relationships from difficult ones.
           </div>
         </div>
-        <div class="model-body">
-          <p>We work alongside your team through discovery, scoping, and close. AI Strategy US supports the sales process; the partner agency handles full implementation and ongoing client delivery.</p>
-          <ul class="model-list">
-            <li>Joint discovery and scoping calls with the client</li>
-            <li>Solution direction input and positioning support from our side</li>
-            <li>Active involvement through the close</li>
-            <li>Partner owns implementation, delivery, and ongoing support</li>
-            <li>Retainer and long-term engagement terms addressed upfront</li>
-            <li>Commercial terms negotiated per engagement based on scope and involvement</li>
-          </ul>
+
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+            <h3>What industries do your clients come from?</h3>
+            <span class="faq-chevron" aria-hidden="true">▾</span>
+          </div>
+          <div class="faq-a">
+            Our inbound clients span a wide range of small business categories — contractors, professional services, real estate, retail, service businesses, and operations-heavy businesses looking to automate manual work. We do not currently serve healthcare providers, private equity-backed companies, or businesses in heavily regulated industries that require specialized compliance knowledge.
+          </div>
         </div>
-      </div>
 
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+            <h3>Are leads exclusive?</h3>
+            <span class="faq-chevron" aria-hidden="true">▾</span>
+          </div>
+          <div class="faq-a">
+            Yes. Each opportunity is delivered to one partner only. We don't distribute the same lead to multiple agencies. That exclusivity is part of what we believe makes this program worth participating in.
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+            <h3>What makes a lead "qualified"?</h3>
+            <span class="faq-chevron" aria-hidden="true">▾</span>
+          </div>
+          <div class="faq-a">
+            A Qualified Lead means we've completed a discovery conversation and produced a written Opportunity Brief. We assess four primary factors: decision-maker authority, budget strength, urgency, and implementation readiness. Each is scored on a simple rubric, and the brief summarizes what we found so your team can evaluate the opportunity clearly before deciding whether to engage.
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+            <h3>How does handoff work?</h3>
+            <span class="faq-chevron" aria-hidden="true">▾</span>
+          </div>
+          <div class="faq-a">
+            For Warm Leads, we provide contact details and inquiry context and make a warm introduction where appropriate. For Qualified Leads, we deliver the written Opportunity Brief and recommend a first-contact approach. For Co-Sell engagements, we stay involved through the close and transition out cleanly once the client-partner relationship is established.
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+            <h3>How is confidentiality handled?</h3>
+            <span class="faq-chevron" aria-hidden="true">▾</span>
+          </div>
+          <div class="faq-a">
+            All client information shared through any collaboration model is treated as confidential. Partners agree to use shared information solely for the purpose of evaluating and engaging the specific opportunity provided. Client details are not to be redistributed, shared with third parties, or used for any other purpose.
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+            <h3>How quickly are leads delivered?</h3>
+            <span class="faq-chevron" aria-hidden="true">▾</span>
+          </div>
+          <div class="faq-a">
+            Lead timing depends on our current pipeline and partner capacity. We don't guarantee volume or frequency — when an opportunity that matches a partner's profile comes in, we route it promptly. Qualified Leads take additional time to produce given the discovery process involved.
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+            <h3>What happens if a client becomes a long-term retainer?</h3>
+            <span class="faq-chevron" aria-hidden="true">▾</span>
+          </div>
+          <div class="faq-a">
+            For Co-Sell engagements, ongoing retainer arrangements and how compensation applies to them are addressed as part of the initial commercial discussion. We handle these on a case-by-case basis and document expectations clearly before any client introduction is made.
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-
-  <hr class="divider" />
+  </section>
 
 
-  <!-- SECTION 4: HOW QUALIFIED LEADS ARE CREATED -->
-  <div class="section">
-    <span class="section-eyebrow">Lead Quality</span>
-    <h2>How We Qualify Opportunities</h2>
-    <p>For Qualified Lead opportunities, we assess each prospect across four primary categories using a simple scoring rubric. These are the factors that most directly determine whether an opportunity is worth your team's time.</p>
-
-    <div class="score-grid">
-      <div class="score-item">
-        <div class="score-label">Decision-Maker Authority</div>
-        <div class="score-range">0 – 5</div>
+  <!-- PARTNER INQUIRY FORM -->
+  <section id="partner-form" aria-labelledby="form-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label gold">Apply to Partner</span>
+        <h2 id="form-heading">Tell us about your team</h2>
+        <p>Fill out the form below and we'll email you our Partner Sheet along with next steps. We review every submission and follow up with qualified agencies directly.</p>
       </div>
-      <div class="score-item">
-        <div class="score-label">Budget Strength</div>
-        <div class="score-range">0 – 5</div>
-      </div>
-      <div class="score-item">
-        <div class="score-label">Urgency</div>
-        <div class="score-range">0 – 5</div>
-      </div>
-      <div class="score-item">
-        <div class="score-label">Implementation Readiness</div>
-        <div class="score-range">0 – 5</div>
+
+      <div class="partner-form-layout">
+
+        <!-- Left column -->
+        <div class="partner-form-info">
+          <h3>What happens after you submit:</h3>
+          <ul class="partner-info-list">
+            <li>You'll receive our Partner Sheet by email — an overview of the program, collaboration models, and what to expect</li>
+            <li>A member of our team will follow up within a few business days to discuss fit</li>
+            <li>If there's mutual interest, we'll schedule a short call to align on delivery capability and collaboration model</li>
+            <li>Approved partners are matched to opportunities based on capacity and client fit</li>
+          </ul>
+          <div class="partner-note">
+            We work with a small number of partners at any given time. Submitting this form does not guarantee acceptance into the program.
+          </div>
+        </div>
+
+        <!-- Right column: form -->
+        <div>
+          <div class="form-status" id="form-status" role="alert" aria-live="polite"></div>
+
+          <!--
+            ================================================================
+            SETUP — Replace placeholders before going live
+
+            [1] TURNSTILE SITE KEY
+                Locate:  data-sitekey="0x4AAAAAACkhzE0byBM3H8jMYO"
+                Replace: 0x4AAAAAACkhzE0byBM3H8jMYO
+                Source:  Cloudflare Dashboard → Turnstile → Add Site
+
+            [2] PARTNER WEBAPP URL
+                Locate:  const PARTNER_WEBAPP_URL = 'https://ai-strategy-form-partner.aistrategyus.workers.dev/';
+                Replace: https://ai-strategy-form-partner.aistrategyus.workers.dev/
+                Note:    Separate from the main site endpoint.
+                         Routes to its own Google Sheet: "AI Strategy US — Partner Inquiries"
+                         On submit: log to Sheet, send Partner Sheet via email automatically.
+
+            [3] SECRET TOKEN
+                Locate:  value="UynY5pZCu44kKs0eqfb58e7JNuc5zw6PgQRgXYx6"
+                Replace: UynY5pZCu44kKs0eqfb58e7JNuc5zw6PgQRgXYx6
+
+            BACKEND BEHAVIOR FOR PARTNER SUBMISSIONS:
+              → Log all fields to Google Sheets (separate Partners sheet)
+              → No SMS sent
+              → Automated email: send Partner Sheet PDF link to submitter
+              → Internal notification to team
+              → Manual follow-up call scheduled by team
+            ================================================================
+          -->
+
+          <form class="contact-form" id="partner-form-el" novalidate aria-label="Partner inquiry form">
+
+            <input type="hidden" name="secret_token"  value="UynY5pZCu44kKs0eqfb58e7JNuc5zw6PgQRgXYx6" />
+            <input type="hidden" name="interest_type" value="Partner Inquiry" />
+            <input type="hidden" name="source_page"   value="partners" />
+
+            <!-- Name row -->
+            <div class="form-row">
+              <div class="field">
+                <label for="first_name">First Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="first_name" name="first_name"
+                       placeholder="Jane" required aria-required="true" autocomplete="given-name" />
+              </div>
+              <div class="field">
+                <label for="last_name">Last Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="last_name" name="last_name"
+                       placeholder="Smith" required aria-required="true" autocomplete="family-name" />
+              </div>
+            </div>
+
+            <!-- Company + Website -->
+            <div class="form-row">
+              <div class="field">
+                <label for="company">Company Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="company" name="company"
+                       placeholder="Your Agency Name" required aria-required="true" autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="website">Website <span aria-hidden="true">*</span></label>
+                <input type="url" id="website" name="website"
+                       placeholder="https://youragency.com" required aria-required="true" />
+              </div>
+            </div>
+
+            <!-- Email + Phone -->
+            <div class="form-row">
+              <div class="field">
+                <label for="email">Email Address <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email"
+                       placeholder="you@youragency.com" required aria-required="true" autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone"
+                       placeholder="(615) 555-0100" autocomplete="tel" />
+              </div>
+            </div>
+
+            <!-- Organization type -->
+            <div class="field">
+              <label for="org_type">Type of Organization <span aria-hidden="true">*</span></label>
+              <div class="select-wrapper">
+                <select id="org_type" name="org_type" required aria-required="true">
+                  <option value="" disabled selected>Select one…</option>
+                  <option value="Full-service AI consulting agency">Full-service AI consulting agency</option>
+                  <option value="Engineering / implementation team that delivers AI projects end-to-end">Engineering / implementation team that delivers AI projects end-to-end</option>
+                  <option value="Other">Other (describe in notes below)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Delivery capabilities -->
+            <div class="checkbox-group" role="group" aria-labelledby="capabilities-label">
+              <span class="group-label" id="capabilities-label">Delivery Capabilities — select all that apply</span>
+
+              <div class="check-item">
+                <input type="checkbox" id="cap_discovery" name="cap_discovery" value="true" />
+                <label for="cap_discovery">Discovery + scoping support</label>
+              </div>
+              <div class="check-item">
+                <input type="checkbox" id="cap_implementation" name="cap_implementation" value="true" />
+                <label for="cap_implementation">Implementation (engineering and build)</label>
+              </div>
+              <div class="check-item">
+                <input type="checkbox" id="cap_integrations" name="cap_integrations" value="true" />
+                <label for="cap_integrations">Integrations and automation (CRM, billing, scheduling, databases, etc.)</label>
+              </div>
+              <div class="check-item">
+                <input type="checkbox" id="cap_support" name="cap_support" value="true" />
+                <label for="cap_support">Ongoing support, maintenance, and retainers</label>
+              </div>
+            </div>
+
+            <!-- Project range -->
+            <div class="field">
+              <label for="project_range">Typical SMB Project Range <span aria-hidden="true">*</span></label>
+              <div class="select-wrapper">
+                <select id="project_range" name="project_range" required aria-required="true">
+                  <option value="" disabled selected>Select one…</option>
+                  <option value="Under $10k">Under $10k</option>
+                  <option value="$10k–$25k">$10k–$25k</option>
+                  <option value="$25k–$50k">$25k–$50k</option>
+                  <option value="$50k+">$50k+</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Regions -->
+            <div class="field">
+              <label for="regions">Regions Served</label>
+              <input type="text" id="regions" name="regions"
+                     placeholder="e.g. Southeast US, Nationwide, Remote-only" />
+            </div>
+
+            <!-- Notes -->
+            <div class="field">
+              <label for="notes">About Your Team <span aria-hidden="true">*</span></label>
+              <textarea id="notes" name="notes" required aria-required="true"
+                placeholder="Briefly describe your team, the types of clients you typically serve, and your delivery approach. What does a successful engagement look like for you?"></textarea>
+            </div>
+
+            <!-- Partner Sheet note -->
+            <div class="partner-sheet-note">
+              ✦ &nbsp;Submit this form and we'll email you our Partner Sheet + next steps.
+            </div>
+
+            <!-- Consent -->
+            <div class="consent-group" role="group" aria-label="Required agreements">
+              <div class="consent-item">
+                <input type="checkbox" id="consent_terms" name="consent_terms"
+                       value="true" required aria-required="true" />
+                <label for="consent_terms">
+                  I agree to the <a href="/terms/" target="_blank" rel="noopener">Terms of Service</a> and <a href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>. <span aria-hidden="true">*</span>
+                </label>
+              </div>
+              <div class="consent-item">
+                <input type="checkbox" id="consent_comms" name="consent_comms"
+                       value="true" required aria-required="true" />
+                <label for="consent_comms">
+                  I consent to receive email communications from AI Strategy US, LLC related to this inquiry. I understand I can opt out at any time. <span aria-hidden="true">*</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- [1] TURNSTILE — Replace data-sitekey before launch -->
+            <div class="cf-turnstile"
+                 data-sitekey="0x4AAAAAACkhzE0byBM3H8jMYO"
+                 data-theme="dark"
+                 aria-label="Security verification"></div>
+
+            <button type="submit" class="form-submit" id="submit-btn">
+              Submit Partner Application
+            </button>
+
+          </form>
+        </div>
+
       </div>
     </div>
-
-    <p style="margin-top: 14px;">Each score is documented in the Opportunity Brief. Partners receive the full scoring breakdown alongside the qualitative notes from our discovery conversation.</p>
-  </div>
-
-  <hr class="divider" />
+  </section>
 
 
-  <!-- SECTION 5: PROCESS EXPECTATIONS -->
-  <div class="section">
-    <span class="section-eyebrow">Working Together</span>
-    <h2>Process Expectations</h2>
-
-    <div class="expect-grid" style="margin-bottom: 20px;">
-
-      <div class="expect-card">
-        <h4>Lead Exclusivity</h4>
-        <p>Every opportunity is delivered to one partner only. We do not offer the same lead to multiple agencies simultaneously.</p>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="/" class="footer-logo">AI Strategy<span class="accent"> US</span></a>
+        <div class="footer-links">
+          <a href="/terms/">Terms of Service</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/contact/">Contact</a>
+        </div>
+        <p>AI Strategy US, LLC &mdash; Nashville, TN &mdash; Serving Businesses Nationwide</p>
+        <p>&copy; <span id="footer-year"></span> AI Strategy US, LLC. All rights reserved.</p>
       </div>
-
-      <div class="expect-card">
-        <h4>Acceptance &amp; Decline</h4>
-        <p>For Qualified Leads, partners may accept or pass on any opportunity. There is no obligation. Declined opportunities may be offered to another partner at our discretion.</p>
-      </div>
-
-      <div class="expect-card">
-        <h4>Confidentiality</h4>
-        <p>All client information shared through any collaboration model is confidential. Partner agrees not to redistribute, share, or repurpose any shared client data.</p>
-      </div>
-
-      <div class="expect-card">
-        <h4>Responsiveness</h4>
-        <p>Partners are expected to follow up on delivered opportunities promptly. Warm leads are time-sensitive — delay reduces conversion significantly.</p>
-      </div>
-
-      <div class="expect-card">
-        <h4>Lead Timing</h4>
-        <p>Opportunity delivery is based on our current pipeline and partner capacity. We do not guarantee volume or fixed delivery frequency. Opportunities are routed as they become available.</p>
-      </div>
-
-      <div class="expect-card">
-        <h4>Feedback Loop</h4>
-        <p>We ask partners to share outcome updates on delivered opportunities. This helps us calibrate quality, refine scoring, and improve handoff quality over time.</p>
-      </div>
-
     </div>
-  </div>
-
-  <hr class="divider" />
+  </footer>
 
 
-  <!-- SECTION 6: IDEAL PARTNER CRITERIA -->
-  <div class="section">
-    <span class="section-eyebrow">What We Value</span>
-    <h2>Ideal Partner Criteria</h2>
-    <p>Beyond delivery capability, the partnerships that perform best share these qualities consistently:</p>
+  <script>
+    'use strict';
 
-    <ul class="criteria-list" style="margin-top: 12px;">
-      <li class="good"><span class="ci">✓</span><span class="ci-text"><strong style="color: var(--dark);">Responsive</strong> — follows up on leads promptly and communicates clearly with clients</span></li>
-      <li class="good"><span class="ci">✓</span><span class="ci-text"><strong style="color: var(--dark);">End-to-end capable</strong> — handles discovery through implementation and post-delivery support</span></li>
-      <li class="good"><span class="ci">✓</span><span class="ci-text"><strong style="color: var(--dark);">Client-first</strong> — prioritizes client outcomes; strong communication and delivery track record</span></li>
-      <li class="good"><span class="ci">✓</span><span class="ci-text"><strong style="color: var(--dark);">Process-oriented</strong> — consistent handoffs, clear communication, honest feedback on fit</span></li>
-      <li class="good"><span class="ci">✓</span><span class="ci-text"><strong style="color: var(--dark);">Proven</strong> — completed client engagements in AI consulting or implementation they can speak to</span></li>
-      <li class="good"><span class="ci">✓</span><span class="ci-text"><strong style="color: var(--dark);">Available</strong> — has current capacity to take on new client work</span></li>
-      <li class="bad"><span class="ci">✗</span><span class="ci-text"><strong style="color: var(--dark);">Not accepted:</strong> Single-product vendors, SaaS-only agencies, or teams without implementation capability</span></li>
-      <li class="bad"><span class="ci">✗</span><span class="ci-text"><strong style="color: var(--dark);">Not accepted:</strong> Healthcare, private equity, or highly regulated industry specialists</span></li>
-    </ul>
-  </div>
+    // ---- FOOTER YEAR ----
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-  <hr class="divider" />
+    // ================================================================
+    // [2] PARTNER WEBAPP URL — Replace below
+    // Separate from main site endpoint.
+    // Routes submissions to: "AI Strategy US — Partner Inquiries" Google Sheet.
+    // On successful submission, backend should:
+    //   → Log all fields to Partners sheet
+    //   → Send Partner Sheet PDF link to submitter via email
+    //   → Send internal notification to team
+    // ================================================================
+    const PARTNER_WEBAPP_URL = 'https://ai-strategy-form-partner.aistrategyus.workers.dev/';
 
+    // ---- FORM SUBMISSION ----
+    const form      = document.getElementById('partner-form-el');
+    const statusEl  = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
 
-  <!-- SECTION 7: NEXT STEPS -->
-  <div class="next-steps-box">
-    <h2>Next Steps</h2>
-    <p>If you've received this document, your inquiry has been reviewed and a member of our team will be in touch to discuss fit and next steps. Here's what to expect:</p>
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
 
-    <ul class="next-steps-list">
-      <li>A team member from AI Strategy US will reach out within a few business days to schedule a brief fit call</li>
-      <li>We'll align on your team's capabilities, capacity, and which collaboration model makes the most sense</li>
-      <li>If there's mutual interest, we'll formalize the arrangement and begin routing relevant opportunities your way</li>
-      <li>All commercial terms are discussed and documented before any client introduction is made</li>
-    </ul>
+      // -- Validate required text fields --
+      const required = [
+        { name: 'first_name',    label: 'first name' },
+        { name: 'last_name',     label: 'last name' },
+        { name: 'company',       label: 'company name' },
+        { name: 'website',       label: 'website' },
+        { name: 'email',         label: 'email address' },
+        { name: 'notes',         label: 'team description' }
+      ];
 
-    <!--
-      [PLACEHOLDER] BOOKING LINK
-      When a calendar/scheduling link is available, replace the paragraph below
-      with an anchor tag pointing to the booking URL.
-      Example: <a href="YOUR_BOOKING_LINK" class="booking-placeholder">Schedule a Fit Call</a>
-    -->
-    <p style="font-size: 0.855rem; color: rgba(255,255,255,0.38);">
-      A member of our team will reach out directly to arrange a time to connect. No action is needed on your end at this stage.
-    </p>
+      for (const field of required) {
+        const el  = form.querySelector('[name="' + field.name + '"]');
+        const val = (el.value || '').trim();
+        if (!val) {
+          showStatus('error', 'Please enter your ' + field.label + '.');
+          el.focus();
+          return;
+        }
+        if (field.name === 'email' && !isValidEmail(val)) {
+          showStatus('error', 'Please enter a valid email address.');
+          el.focus();
+          return;
+        }
+      }
 
-    <p class="booking-note">Questions in the meantime? Reach out via the Contact page at ai-strategy.us/contact/</p>
-  </div>
+      // -- Validate selects --
+      const orgType      = form.querySelector('[name="org_type"]').value;
+      const projectRange = form.querySelector('[name="project_range"]').value;
+      if (!orgType) {
+        showStatus('error', 'Please select your organization type.');
+        form.querySelector('[name="org_type"]').focus();
+        return;
+      }
+      if (!projectRange) {
+        showStatus('error', 'Please select your typical project range.');
+        form.querySelector('[name="project_range"]').focus();
+        return;
+      }
 
+      // -- Validate consent --
+      const consentTerms = form.querySelector('[name="consent_terms"]');
+      const consentComms = form.querySelector('[name="consent_comms"]');
+      if (!consentTerms.checked) {
+        showStatus('error', 'Please agree to the Terms of Service and Privacy Policy to continue.');
+        consentTerms.focus();
+        return;
+      }
+      if (!consentComms.checked) {
+        showStatus('error', 'Please confirm your consent to receive communications.');
+        consentComms.focus();
+        return;
+      }
 
-  <!-- SHEET FOOTER -->
-  <div class="sheet-footer">
-    <div class="brand-footer">AI Strategy<span class="accent"> US</span>, LLC</div>
-    <div class="footer-note">
-      Nashville, Tennessee &nbsp;·&nbsp; Serving Businesses Nationwide<br>
-      Confidential — For Partner Use Only &nbsp;·&nbsp; ai-strategy.us
-    </div>
-  </div>
+      // -- Validate Turnstile --
+      const turnstileInput = form.querySelector('[name="cf-turnstile-response"]');
+      const turnstileToken = turnstileInput ? turnstileInput.value : '';
+      if (!turnstileToken) {
+        showStatus('error', 'Please complete the security verification above.');
+        return;
+      }
 
-</div>
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'Submitting…';
+      hideStatus();
+
+      // Build payload — all fields match Partner Inquiries sheet columns
+      const payload = {
+        first_name:      (form.querySelector('[name="first_name"]').value    || '').trim(),
+        last_name:       (form.querySelector('[name="last_name"]').value     || '').trim(),
+        company:         (form.querySelector('[name="company"]').value       || '').trim(),
+        website:         (form.querySelector('[name="website"]').value       || '').trim(),
+        email:           (form.querySelector('[name="email"]').value         || '').trim(),
+        phone:           (form.querySelector('[name="phone"]').value         || '').trim(),
+        regions:         (form.querySelector('[name="regions"]').value       || '').trim(),
+        notes:           (form.querySelector('[name="notes"]').value         || '').trim(),
+        org_type:        orgType,
+        project_range:   projectRange,
+
+        // Delivery capability checkboxes
+        cap_discovery:       form.querySelector('[name="cap_discovery"]').checked       ? 'Yes' : 'No',
+        cap_implementation:  form.querySelector('[name="cap_implementation"]').checked  ? 'Yes' : 'No',
+        cap_integrations:    form.querySelector('[name="cap_integrations"]').checked    ? 'Yes' : 'No',
+        cap_support:         form.querySelector('[name="cap_support"]').checked         ? 'Yes' : 'No',
+
+        // Consent
+        consent_terms:   consentTerms.checked ? 'true' : 'false',
+        consent_comms:   consentComms.checked ? 'true' : 'false',
+
+        // Meta
+        interest_type:   'Partner Inquiry',
+        source_page:     'partners',
+        secret_token:    form.querySelector('[name="secret_token"]').value,
+        turnstile_token: turnstileToken,
+        page_url:        window.location.href,
+        submitted_at:    new Date().toISOString()
+      };
+
+      try {
+        const response = await fetch(PARTNER_WEBAPP_URL, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          statusEl.className = 'form-status success';
+          statusEl.textContent = 'Application received. Check your inbox — we\'ll send over our Partner Sheet and reach out within a few business days to discuss next steps.';
+          statusEl.style.display = 'block';
+          statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          form.reset();
+        } else {
+          throw new Error('Status ' + response.status);
+        }
+
+      } catch (err) {
+        console.error('Submission error:', err);
+        showStatus('error', 'Something went wrong. Please try again in a moment.');
+      } finally {
+        submitBtn.disabled    = false;
+        submitBtn.textContent = 'Submit Partner Application';
+      }
+    });
+
+    // ---- FAQ ACCORDION ----
+    document.querySelectorAll('.faq-q').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item.open').forEach(function (el) {
+          el.classList.remove('open');
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      // Keyboard support
+      btn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+
+    // ---- HELPERS ----
+    function showStatus(type, msg) {
+      statusEl.className     = 'form-status ' + type;
+      statusEl.textContent   = msg;
+      statusEl.style.display = 'block';
+      statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function hideStatus() {
+      statusEl.className     = 'form-status';
+      statusEl.textContent   = '';
+      statusEl.style.display = 'none';
+    }
+
+    function isValidEmail(v) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    }
+  </script>
+
 </body>
 </html>
