@@ -1746,7 +1746,7 @@
     // [4] CALENDAR SCHEDULING LINK
     // Displayed inline in the confirmation message for Consultation submissions
     // so the user can book immediately without waiting for the follow-up email
-    const CALENDAR_URL = 'YOUR_CALENDAR_LINK';
+    const CALENDAR_URL = 'https://ai-strategy.us/schedule/';
 
     // ================================================================
 
@@ -1961,7 +1961,7 @@
               '<a href="' + CALENDAR_URL + '" class="calendar-cta" target="_blank" rel="noopener noreferrer">' +
               '→ Schedule Your Strategy Session Now' +
               '</a>' +
-              '<span class="status-sub">You can schedule now using the link above, or check your email shortly for next steps.</span>';
+              '<span class="status-sub">You can schedule now using the link above, or check your email shortly for next steps. If you don\'t see a confirmation email in your inbox, please check your spam or junk folder.</span>';
             statusEl.style.display = 'block';
             statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
@@ -1970,7 +1970,7 @@
           } else {
             showStatus(
               'success',
-              'Thank you — your guide will arrive shortly in your email. Check your inbox (and spam folder, just in case) within the next few minutes.'
+              'Thank you — your guide will arrive shortly in your email. Check your inbox (and spam or junk folder, just in case) within the next few minutes.'
             );
           }
 
