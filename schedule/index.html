@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <title>Schedule a Consultation | AI Strategy US</title>
+  <meta name="description" content="Online scheduling for AI Strategy US LLC consultations. Coming soon — book via email in the meantime." />
+  <meta name="robots" content="noindex, follow" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      color: #1a2033;
+      background: #ffffff;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    :root {
+      --dark:     #0E1525;
+      --dark-2:   #14203A;
+      --dark-3:   #1B2B4A;
+      --blue:     #2563EB;
+      --blue-h:   #3B82F6;
+      --gold:     #C09A3E;
+      --light-bg: #F5F6F9;
+      --border:   #E2E6EF;
+      --muted:    #6B7280;
+      --white:    #ffffff;
+    }
+
+    /* ── Nav (exact match to index.html) ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(14, 21, 37, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+    .nav-logo .accent { color: var(--gold); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #fff; }
+
+    .nav-cta {
+      background: var(--blue);
+      color: #fff;
+      padding: 9px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--blue-h); }
+
+    /* ── Full-page dark background ── */
+    .page-wrap {
+      min-height: 100vh;
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      padding-top: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Glows matching the hero section */
+    .page-glow-1 {
+      position: absolute;
+      top: -180px; right: -180px;
+      width: 680px; height: 680px;
+      background: radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .page-glow-2 {
+      position: absolute;
+      bottom: -120px; left: -80px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(192,154,62,0.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    /* ── Main ── */
+    main {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+
+    .content {
+      max-width: 660px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Eyebrow — exact match to .hero-eyebrow */
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 22px;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .rule {
+      width: 48px;
+      height: 2px;
+      background: rgba(192,154,62,0.3);
+      margin: 0 auto 28px;
+      border-radius: 2px;
+    }
+
+    .body-text {
+      font-size: clamp(1rem, 2vw, 1.08rem);
+      color: rgba(255,255,255,0.55);
+      line-height: 1.78;
+      max-width: 520px;
+      margin: 0 auto 10px;
+    }
+
+    .body-sub {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.28);
+      margin: 0 auto 40px;
+    }
+
+    /* Credibility line — matches .hero-credibility */
+    .status-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 44px;
+      color: rgba(255,255,255,0.28);
+      font-size: 0.875rem;
+    }
+
+    .status-dot {
+      width: 7px; height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.3; transform: scale(0.7); }
+    }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 28px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 0.825rem;
+      color: rgba(255,255,255,0.22);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 0.825rem;
+      color: rgba(255,255,255,0.22);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.55); }
+
+    @media (max-width: 600px) {
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">AI Strategy<span class="accent"> US</span></a>
+      <div class="nav-right">
+        <a href="/partners/" class="nav-link">Partners</a>
+        <a href="/#contact" class="nav-cta">Free Strategy Session</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="page-glow-1" aria-hidden="true"></div>
+    <div class="page-glow-2" aria-hidden="true"></div>
+
+    <main>
+      <div class="content">
+
+        <span class="eyebrow">Schedule a Consultation</span>
+
+        <h1>Online Scheduling<br>Is <em>On Its Way</em></h1>
+
+        <div class="rule"></div>
+
+        <p class="body-text">
+          We're putting the finishing touches on our online scheduling system.
+          Your submission has been received — a member of our team will be in
+          touch to coordinate your consultation based on current capacity.
+        </p>
+
+        <p class="body-sub">Please check your spam or junk folder if you don't see a confirmation email in your inbox shortly. We appreciate your patience and look forward to connecting with you.</p>
+
+        <div class="status-row">
+          <span class="status-dot"></span>
+          Online scheduling coming soon
+        </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span class="footer-copy">&copy; 2025 AI Strategy US LLC &mdash; Nashville, TN</span>
+        <div class="footer-links">
+          <a href="/contact/">Contact</a>
+          <a href="/partners/">Partners</a>
+          <a href="/">Home</a>
+        </div>
+      </div
