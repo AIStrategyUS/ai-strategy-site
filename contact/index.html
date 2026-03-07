@@ -460,7 +460,7 @@
           body:    JSON.stringify(payload)
         });
         if (response.ok) {
-          showStatus('success', 'Your message has been received. We will respond to your inquiry within one business day.');
+          showStatus('success', 'Your message has been received. A member of our team will be in touch as soon as possible. If you don\'t see a confirmation email in your inbox, please check your spam or junk folder.');
           form.reset();
           if (window.turnstile) { window.turnstile.reset(); }
         } else {
