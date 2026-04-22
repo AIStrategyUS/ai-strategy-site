@@ -255,6 +255,27 @@
       animation: fadeUp 0.6s ease 0.65s forwards;
     }
 
+    /* Force ElevenLabs widget out of fixed/floating mode into inline flow */
+    elevenlabs-convai {
+      position: static !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      inset: unset !important;
+      bottom: unset !important;
+      right: unset !important;
+      left: unset !important;
+      top: unset !important;
+      transform: none !important;
+      z-index: auto !important;
+    }
+
+    elevenlabs-convai > * {
+      position: static !important;
+      bottom: unset !important;
+      right: unset !important;
+    }
+
     /* ── Disclaimer ── */
     .disclaimer {
       width: 100%;
