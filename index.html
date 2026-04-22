@@ -1581,6 +1581,58 @@
     function isValidEmail(v) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
     }
+
+    (function () {
+      const wrapper = document.getElementById('convai-wrapper');
+      let lastScrollY = window.scrollY;
+      let scrollTimer = null;
+      let isHovering = false;
+
+      function setVisible(visible) {
+        wrapper.style.opacity = visible ? '1' : '0';
+        wrapper.style.transform = visible ? 'scale(1)' : 'scale(0.85)';
+        wrapper.style.pointerEvents = visible ? 'auto' : 'none';
+      }
+
+      function onScroll() {
+        if (isHovering) return;
+        const currentY = window.scrollY;
+        const scrollingDown = currentY > lastScrollY;
+        lastScrollY = currentY;
+
+        if (currentY < 300) {
+          setVisible(false);
+          return;
+        }
+
+        if (scrollingDown) {
+          setVisible(false);
+        } else {
+          setVisible(true);
+        }
+
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function () {
+          setVisible(true);
+        }, 1200);
+      }
+
+      wrapper.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      wrapper.style.opacity = '0';
+      wrapper.style.transform = 'scale(0.85)';
+      wrapper.style.pointerEvents = 'none';
+
+      wrapper.addEventListener('mouseenter', function () {
+        isHovering = true;
+        setVisible(true);
+      });
+
+      wrapper.addEventListener('mouseleave', function () {
+        isHovering = false;
+      });
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
   </script>
  
 </body>
