@@ -1427,16 +1427,14 @@
         var scrollingDown = currentY > lastScrollY;
         lastScrollY = currentY;
 
-        if (scrollingDown && currentY > 300) {
+        if (scrollingDown) {
           setVisible(false);
-        } else {
-          setVisible(true);
         }
 
         clearTimeout(scrollTimer);
         scrollTimer = setTimeout(function () {
           setVisible(true);
-        }, 1200);
+        }, 300);
       }
 
       wrapper.addEventListener('mouseenter', function () {
