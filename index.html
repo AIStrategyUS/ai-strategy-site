@@ -1600,12 +1600,7 @@
         const scrollingDown = currentY > lastScrollY;
         lastScrollY = currentY;
 
-        if (currentY < 300) {
-          setVisible(false);
-          return;
-        }
-
-        if (scrollingDown) {
+        if (scrollingDown && currentY > 300) {
           setVisible(false);
         } else {
           setVisible(true);
@@ -1618,9 +1613,9 @@
       }
 
       wrapper.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-      wrapper.style.opacity = '0';
-      wrapper.style.transform = 'scale(0.85)';
-      wrapper.style.pointerEvents = 'none';
+      wrapper.style.opacity = '1';
+      wrapper.style.transform = 'scale(1)';
+      wrapper.style.pointerEvents = 'auto';
 
       wrapper.addEventListener('mouseenter', function () {
         isHovering = true;
