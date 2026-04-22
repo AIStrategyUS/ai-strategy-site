@@ -144,7 +144,7 @@
       border: 1px solid var(--gold-line);
       border-radius: 8px;
       padding: 32px 36px;
-      margin-bottom: 32px;
+      margin-bottom: 48px;
       opacity: 0;
       animation: fadeUp 0.6s ease 0.45s forwards;
     }
@@ -216,82 +216,13 @@
       opacity: 0.8;
     }
 
-    /* ── Session Stage Card ── */
-    .session-stage {
-      width: 100%;
-      background: var(--navy-mid);
-      border: 1px solid var(--gold-line);
-      border-radius: 12px;
-      margin-bottom: 48px;
-      opacity: 0;
-      animation: fadeUp 0.6s ease 0.55s forwards;
-      overflow: hidden;
-    }
-
-    .session-stage-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 24px;
-      border-bottom: 1px solid var(--gold-line);
-      background: var(--navy-light);
-    }
-
-    .session-stage-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .session-stage-status {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #4ade80;
-      box-shadow: 0 0 7px rgba(74, 222, 128, 0.65);
-      animation: blink 2.4s ease-in-out infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.35; }
-    }
-
-    /* Tall enough to contain the widget in its expanded/active state */
-    .session-stage-body {
-      position: relative;
-      min-height: 340px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 48px 24px;
-    }
-
-    /* Keep the custom element in document flow */
-    elevenlabs-convai {
-      display: block;
-      position: relative !important;
-      inset: unset !important;
-    }
-
     /* ── Disclaimer ── */
     .disclaimer {
       width: 100%;
       padding-top: 24px;
       border-top: 1px solid rgba(240, 237, 230, 0.08);
       opacity: 0;
-      animation: fadeUp 0.6s ease 0.65s forwards;
+      animation: fadeUp 0.6s ease 0.55s forwards;
     }
 
     .disclaimer p {
@@ -320,7 +251,6 @@
       body { padding: 36px 20px 56px; }
       .briefing { padding: 24px 22px; }
       .wordmark { margin-bottom: 40px; }
-      .session-stage-body { min-height: 280px; padding: 36px 16px; }
     }
   </style>
 </head>
@@ -371,28 +301,9 @@
         <strong>you'll get more out of it that way.</strong>
       </p>
 
-      <p>When you're ready, start the session below.</p>
-    </div>
-
-    <!-- Session Stage Card -->
-    <div class="session-stage">
-      <div class="session-stage-header">
-        <span class="session-stage-label">Start Your Session</span>
-        <span class="session-stage-status">
-          <span class="status-dot"></span>
-          Claire is ready
-        </span>
-      </div>
-      <div class="session-stage-body">
-        <!-- ============================================================
-             ELEVENLABS WIDGET
-             ============================================================ -->
-        <elevenlabs-convai agent-id="agent_8401kptpnvwjf318q8yqpy12ggaq"></elevenlabs-convai>
-        <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
-        <!-- ============================================================
-             ELEVENLABS WIDGET — END
-             ============================================================ -->
-      </div>
+      <p>
+        When you're ready, <strong>tap the Claire icon in the bottom corner</strong> to start your session.
+      </p>
     </div>
 
     <!-- Disclaimer -->
@@ -403,6 +314,10 @@
     </div>
 
   </div>
+
+  <!-- ElevenLabs widget — floats in its default position -->
+  <elevenlabs-convai agent-id="agent_8401kptpnvwjf318q8yqpy12ggaq"></elevenlabs-convai>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
 </body>
 </html>
