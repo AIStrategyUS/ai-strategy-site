@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your AI Strategy Session — AI Strategy U.S.</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy:        #0E1525;
+      --navy-mid:    #14203A;
+      --navy-light:  #1B2B4A;
+      --gold:        #C09A3E;
+      --gold-dim:    rgba(192, 154, 62, 0.15);
+      --gold-line:   rgba(192, 154, 62, 0.3);
+      --blue:        #2563EB;
+      --text-primary:   #F0EDE6;
+      --text-secondary: rgba(240, 237, 230, 0.6);
+      --text-muted:     rgba(240, 237, 230, 0.35);
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: var(--navy);
+      color: var(--text-primary);
+      font-family: var(--font);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 24px 64px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Subtle ambient background texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(192, 154, 62, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(37, 99, 235, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* ── Wordmark ── */
+    .wordmark {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 56px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+
+    .wordmark-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--gold-line);
+    }
+
+    .wordmark-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    /* ── Header block ── */
+    .header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.25s forwards;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .session-title {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      color: var(--text-primary);
+    }
+
+    .session-title strong {
+      font-weight: 600;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 32px auto;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.35s forwards;
+    }
+
+    /* ── Briefing block ── */
+    .briefing {
+      width: 100%;
+      background: var(--navy-mid);
+      border: 1px solid var(--gold-line);
+      border-radius: 8px;
+      padding: 32px 36px;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.45s forwards;
+    }
+
+    .briefing p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .briefing p:last-child {
+      margin-bottom: 0;
+    }
+
+    .briefing p strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* Three-point list */
+    .session-points {
+      list-style: none;
+      margin: 4px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .session-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    .session-points li::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    /* Timing callout */
+    .timing-callout {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-line);
+      border-radius: 4px;
+      padding: 8px 14px;
+      margin-top: 4px;
+      margin-bottom: 20px;
+    }
+
+    .timing-callout span {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+
+    .timing-icon {
+      width: 14px;
+      height: 14px;
+      opacity: 0.8;
+    }
+
+    /* ── CTA label ── */
+    .cta-label {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.55s forwards;
+    }
+
+    .cta-label p {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── Widget container ── */
+    .widget-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80px;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.65s forwards;
+    }
+
+    /* ── Disclaimer ── */
+    .disclaimer {
+      width: 100%;
+      padding-top: 24px;
+      border-top: 1px solid rgba(240, 237, 230, 0.08);
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.75s forwards;
+    }
+
+    .disclaimer p {
+      font-size: 11.5px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .disclaimer a {
+      color: var(--text-muted);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s ease;
+    }
+
+    .disclaimer a:hover {
+      color: var(--text-secondary);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 480px) {
+      body {
+        padding: 36px 20px 56px;
+      }
+
+      .briefing {
+        padding: 24px 22px;
+      }
+
+      .wordmark {
+        margin-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrap">
+
+    <!-- Wordmark -->
+    <div class="wordmark">
+      <div class="wordmark-rule"></div>
+      <span class="wordmark-text">AI Strategy US</span>
+      <div class="wordmark-rule"></div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      <p class="eyebrow">Virtual Strategy Session</p>
+      <h1 class="session-title">Your conversation with<br><strong>Claire</strong></h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Briefing block -->
+    <div class="briefing">
+      <p>
+        You're about to speak with Claire — AI Strategy U.S.'s senior virtual consultant.
+        She's been briefed on our consulting process and is ready to dig into your business.
+      </p>
+
+      <p>This session is designed to do three things:</p>
+
+      <ul class="session-points">
+        <li>Understand where your business is today</li>
+        <li>Identify where AI can create the most immediate leverage</li>
+        <li>Give you a clear picture of what working with us looks like</li>
+      </ul>
+
+      <div class="timing-callout">
+        <svg class="timing-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="6.5" stroke="#C09A3E" stroke-width="1.2"/>
+          <path d="M8 4.5V8.5L10.5 10" stroke="#C09A3E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Plan for 20–30 min &nbsp;·&nbsp; Hard cutoff at 45</span>
+      </div>
+
+      <p>
+        Find somewhere quiet, close your other tabs, and give it your full attention —
+        <strong>you'll get more out of it that way.</strong>
+      </p>
+
+      <p>When you're ready, start the session below.</p>
+    </div>
+
+    <!-- CTA label -->
+    <div class="cta-label">
+      <p>Start Your Session</p>
+    </div>
+
+    <!-- Widget -->
+    <div class="widget-wrap">
+      <!-- ============================================================
+           ELEVENLABS WIDGET — INSERT EMBED CODE BELOW THIS LINE
+           ============================================================ -->
+      <elevenlabs-convai agent-id="agent_8401kptpnvwjf318q8yqpy12ggaq"></elevenlabs-convai>
+      <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+      <!-- ============================================================
+           ELEVENLABS WIDGET — END EMBED CODE
+           ============================================================ -->
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+      <p>
+        By initiating this conversation, you confirm that you are 18 years of age or older and agree that interactions with Claire, AI Strategy U.S.'s virtual consultant, are for informational purposes only. Nothing discussed in this session constitutes a binding proposal, guaranteed outcome, or formal business agreement. AI Strategy U.S. makes no guarantees of specific results. Information shared in this session may be used to follow up with you regarding our services. To review our full terms of service, visit <a href="https://ai-strategy.us/terms/" target="_blank" rel="noopener">ai-strategy.us/terms/</a>. To review our full privacy policy, visit <a href="https://ai-strategy.us/privacy/" target="_blank" rel="noopener">ai-strategy.us/privacy/</a>.
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
