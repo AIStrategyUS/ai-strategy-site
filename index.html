@@ -875,64 +875,6 @@
     .consent-item label a:hover { color: var(--gold); }
  
     
-    #sticky-cta {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 300;
-      transition: all 0.35s ease;
-    }
- 
-    #sticky-cta a {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--blue);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      border-radius: 50px;
-      box-shadow: 0 4px 20px rgba(37,99,235,0.35);
-      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-    #sticky-cta a:hover {
-      background: var(--blue-h);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 28px rgba(37,99,235,0.45);
-    }
- 
-    
-    #sticky-cta.compact a {
-      padding: 10px 14px;
-      font-size: 0.78rem;
-      border-radius: 50px;
-    }
-    #sticky-cta.compact .cta-label {
-      max-width: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: max-width 0.3s ease, opacity 0.25s ease;
-    }
-    #sticky-cta.compact .cta-icon {
-      font-size: 1rem;
-    }
- 
-    
-    #sticky-cta.expanded a {
-      padding: 13px 22px;
-      font-size: 0.92rem;
-    }
-    #sticky-cta.expanded .cta-label {
-      max-width: 260px;
-      opacity: 1;
-      transition: max-width 0.35s ease, opacity 0.3s ease;
-    }
-    #sticky-cta.expanded .cta-icon {
-      font-size: 1rem;
-    }
- 
     
     footer {
       background: var(--dark);
@@ -999,10 +941,6 @@
       }
       .guide-teaser-cta { width: 100%; text-align: center; }
  
-      #sticky-cta {
-        bottom: 16px;
-        right: 16px;
-      }
     }
  
     @media (max-width: 580px) {
@@ -1443,12 +1381,24 @@
   </footer>
  
   
-  <div id="sticky-cta" class="expanded" aria-label="Book a strategy session">
-    <a href="#contact">
-      <span class="cta-icon">📅</span>
-      <span class="cta-label">Book My Strategy Session</span>
-    </a>
+  <div id="convai-wrapper">
+    <elevenlabs-convai agent-id="agent_5901kprxzqb5e81arx2k1pp4w1dr"></elevenlabs-convai>
   </div>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+  <style>
+    #convai-wrapper {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 300;
+    }
+    @media (max-width: 768px) {
+      #convai-wrapper {
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+  </style>
  
   
   <script>
@@ -1458,51 +1408,6 @@
  
     const GOOGLE_WEBAPP_URL = 'https://ai-strategy-form-main.aistrategyus.workers.dev/';
     const CALENDAR_URL = 'https://ai-strategy.us/schedule/';
- 
-    (function () {
-      const stickyCta = document.getElementById('sticky-cta');
-      let lastScrollY = window.scrollY;
-      let scrollTimer = null;
-      let isScrollingDown = false;
- 
-      function onScroll() {
-        const currentY = window.scrollY;
- 
-        if (currentY < 300) {
-          stickyCta.style.opacity = '0';
-          stickyCta.style.pointerEvents = 'none';
-          return;
-        }
- 
-        stickyCta.style.opacity = '1';
-        stickyCta.style.pointerEvents = 'auto';
- 
-        isScrollingDown = currentY > lastScrollY;
-        lastScrollY = currentY;
- 
-        if (isScrollingDown) {
-          stickyCta.classList.remove('expanded');
-          stickyCta.classList.add('compact');
-        } else {
- 
-          stickyCta.classList.remove('compact');
-          stickyCta.classList.add('expanded');
-        }
- 
-        clearTimeout(scrollTimer);
- 
-        scrollTimer = setTimeout(function () {
-          stickyCta.classList.remove('compact');
-          stickyCta.classList.add('expanded');
-        }, 1200);
-      }
- 
-      stickyCta.style.opacity = '0';
-      stickyCta.style.pointerEvents = 'none';
-      stickyCta.style.transition = 'opacity 0.3s ease';
- 
-      window.addEventListener('scroll', onScroll, { passive: true });
-    })();
  
     const form           = document.getElementById('contact-form');
     const statusEl       = document.getElementById('form-status');
