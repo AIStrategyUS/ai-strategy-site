@@ -1413,39 +1413,24 @@
       var wrapper = document.getElementById('convai-wrapper');
       var lastScrollY = window.scrollY;
       var scrollTimer = null;
-      var isHovering = false;
 
-      function setVisible(visible) {
-        wrapper.style.opacity = visible ? '1' : '0';
-        wrapper.style.transform = visible ? 'scale(1)' : 'scale(0.85)';
-        wrapper.style.pointerEvents = visible ? 'auto' : 'none';
-      }
-
-      function onScroll() {
-        if (isHovering) return;
+      window.addEventListener('scroll', function () {
         var currentY = window.scrollY;
-        var scrollingDown = currentY > lastScrollY;
-        lastScrollY = currentY;
-
-        if (scrollingDown) {
-          setVisible(false);
+        if (currentY > lastScrollY) {
+          wrapper.style.opacity = '0';
+          wrapper.style.pointerEvents = 'none';
+        } else {
+          wrapper.style.opacity = '1';
+          wrapper.style.pointerEvents = 'auto';
         }
+        lastScrollY = currentY;
 
         clearTimeout(scrollTimer);
         scrollTimer = setTimeout(function () {
-          setVisible(true);
-        }, 300);
-      }
-
-      wrapper.addEventListener('mouseenter', function () {
-        isHovering = true;
-        setVisible(true);
-      });
-      wrapper.addEventListener('mouseleave', function () {
-        isHovering = false;
-      });
-
-      window.addEventListener('scroll', onScroll, { passive: true });
+          wrapper.style.opacity = '1';
+          wrapper.style.pointerEvents = 'auto';
+        }, 150);
+      }, { passive: true });
     })();
  
     const form           = document.getElementById('contact-form');
