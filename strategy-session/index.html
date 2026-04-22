@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your AI Strategy Session — AI Strategy U.S.</title>
+  <title>Your AI Strategy Session — AI Strategy US</title>
   <meta name="robots" content="noindex, nofollow" />
   <style>
     *, *::before, *::after {
@@ -17,18 +17,15 @@
       --navy-mid:    #14203A;
       --navy-light:  #1B2B4A;
       --gold:        #C09A3E;
-      --gold-dim:    rgba(192, 154, 62, 0.15);
-      --gold-line:   rgba(192, 154, 62, 0.3);
-      --blue:        #2563EB;
+      --gold-dim:    rgba(192, 154, 62, 0.12);
+      --gold-line:   rgba(192, 154, 62, 0.28);
       --text-primary:   #F0EDE6;
       --text-secondary: rgba(240, 237, 230, 0.6);
-      --text-muted:     rgba(240, 237, 230, 0.35);
+      --text-muted:     rgba(240, 237, 230, 0.32);
       --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     }
 
-    html, body {
-      height: 100%;
-    }
+    html, body { height: 100%; }
 
     body {
       background-color: var(--navy);
@@ -43,7 +40,6 @@
       overflow-x: hidden;
     }
 
-    /* Subtle ambient background texture */
     body::before {
       content: '';
       position: fixed;
@@ -55,7 +51,6 @@
       z-index: 0;
     }
 
-    /* Grain overlay */
     body::after {
       content: '';
       position: fixed;
@@ -74,7 +69,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0;
     }
 
     /* ── Wordmark ── */
@@ -103,7 +97,7 @@
       white-space: nowrap;
     }
 
-    /* ── Header block ── */
+    /* ── Header ── */
     .header {
       width: 100%;
       text-align: center;
@@ -150,7 +144,7 @@
       border: 1px solid var(--gold-line);
       border-radius: 8px;
       padding: 32px 36px;
-      margin-bottom: 48px;
+      margin-bottom: 32px;
       opacity: 0;
       animation: fadeUp 0.6s ease 0.45s forwards;
     }
@@ -162,16 +156,13 @@
       margin-bottom: 20px;
     }
 
-    .briefing p:last-child {
-      margin-bottom: 0;
-    }
+    .briefing p:last-child { margin-bottom: 0; }
 
     .briefing p strong {
       color: var(--text-primary);
       font-weight: 500;
     }
 
-    /* Three-point list */
     .session-points {
       list-style: none;
       margin: 4px 0 20px;
@@ -200,7 +191,6 @@
       flex-shrink: 0;
     }
 
-    /* Timing callout */
     .timing-callout {
       display: inline-flex;
       align-items: center;
@@ -226,54 +216,73 @@
       opacity: 0.8;
     }
 
-    /* ── CTA label ── */
-    .cta-label {
+    /* ── Session Stage Card ── */
+    .session-stage {
       width: 100%;
-      text-align: center;
-      margin-bottom: 24px;
+      background: var(--navy-mid);
+      border: 1px solid var(--gold-line);
+      border-radius: 12px;
+      margin-bottom: 48px;
       opacity: 0;
       animation: fadeUp 0.6s ease 0.55s forwards;
+      overflow: hidden;
     }
 
-    .cta-label p {
-      font-size: 12px;
+    .session-stage-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--gold-line);
+      background: var(--navy-light);
+    }
+
+    .session-stage-label {
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
     }
 
-    /* ── Widget container ── */
-    .widget-wrap {
-      width: 100%;
+    .session-stage-status {
       display: flex;
-      justify-content: center;
       align-items: center;
-      min-height: 80px;
-      margin-bottom: 48px;
-      opacity: 0;
-      animation: fadeUp 0.6s ease 0.65s forwards;
+      gap: 7px;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
     }
 
-    /* Force ElevenLabs widget out of fixed/floating mode into inline flow */
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 7px rgba(74, 222, 128, 0.65);
+      animation: blink 2.4s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    /* Tall enough to contain the widget in its expanded/active state */
+    .session-stage-body {
+      position: relative;
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+    }
+
+    /* Keep the custom element in document flow */
     elevenlabs-convai {
-      position: static !important;
-      display: flex !important;
-      justify-content: center !important;
-      align-items: center !important;
+      display: block;
+      position: relative !important;
       inset: unset !important;
-      bottom: unset !important;
-      right: unset !important;
-      left: unset !important;
-      top: unset !important;
-      transform: none !important;
-      z-index: auto !important;
-    }
-
-    elevenlabs-convai > * {
-      position: static !important;
-      bottom: unset !important;
-      right: unset !important;
     }
 
     /* ── Disclaimer ── */
@@ -282,7 +291,7 @@
       padding-top: 24px;
       border-top: 1px solid rgba(240, 237, 230, 0.08);
       opacity: 0;
-      animation: fadeUp 0.6s ease 0.75s forwards;
+      animation: fadeUp 0.6s ease 0.65s forwards;
     }
 
     .disclaimer p {
@@ -298,35 +307,20 @@
       transition: color 0.2s ease;
     }
 
-    .disclaimer a:hover {
-      color: var(--text-secondary);
-    }
+    .disclaimer a:hover { color: var(--text-secondary); }
 
     /* ── Animations ── */
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     /* ── Mobile ── */
     @media (max-width: 480px) {
-      body {
-        padding: 36px 20px 56px;
-      }
-
-      .briefing {
-        padding: 24px 22px;
-      }
-
-      .wordmark {
-        margin-bottom: 40px;
-      }
+      body { padding: 36px 20px 56px; }
+      .briefing { padding: 24px 22px; }
+      .wordmark { margin-bottom: 40px; }
+      .session-stage-body { min-height: 280px; padding: 36px 16px; }
     }
   </style>
 </head>
@@ -352,7 +346,7 @@
     <!-- Briefing block -->
     <div class="briefing">
       <p>
-        You're about to speak with Claire — AI Strategy U.S.'s senior virtual consultant.
+        You're about to speak with Claire — AI Strategy US's senior virtual consultant.
         She's been briefed on our consulting process and is ready to dig into your business.
       </p>
 
@@ -380,27 +374,31 @@
       <p>When you're ready, start the session below.</p>
     </div>
 
-    <!-- CTA label -->
-    <div class="cta-label">
-      <p>Start Your Session</p>
-    </div>
-
-    <!-- Widget -->
-    <div class="widget-wrap">
-      <!-- ============================================================
-           ELEVENLABS WIDGET — INSERT EMBED CODE BELOW THIS LINE
-           ============================================================ -->
-      <elevenlabs-convai agent-id="agent_8401kptpnvwjf318q8yqpy12ggaq"></elevenlabs-convai>
-      <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
-      <!-- ============================================================
-           ELEVENLABS WIDGET — END EMBED CODE
-           ============================================================ -->
+    <!-- Session Stage Card -->
+    <div class="session-stage">
+      <div class="session-stage-header">
+        <span class="session-stage-label">Start Your Session</span>
+        <span class="session-stage-status">
+          <span class="status-dot"></span>
+          Claire is ready
+        </span>
+      </div>
+      <div class="session-stage-body">
+        <!-- ============================================================
+             ELEVENLABS WIDGET
+             ============================================================ -->
+        <elevenlabs-convai agent-id="agent_8401kptpnvwjf318q8yqpy12ggaq"></elevenlabs-convai>
+        <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+        <!-- ============================================================
+             ELEVENLABS WIDGET — END
+             ============================================================ -->
+      </div>
     </div>
 
     <!-- Disclaimer -->
     <div class="disclaimer">
       <p>
-        By initiating this conversation, you confirm that you are 18 years of age or older and agree that interactions with Claire, AI Strategy U.S.'s virtual consultant, are for informational purposes only. Nothing discussed in this session constitutes a binding proposal, guaranteed outcome, or formal business agreement. AI Strategy U.S. makes no guarantees of specific results. Information shared in this session may be used to follow up with you regarding our services. To review our full terms of service, visit <a href="https://ai-strategy.us/terms/" target="_blank" rel="noopener">ai-strategy.us/terms/</a>. To review our full privacy policy, visit <a href="https://ai-strategy.us/privacy/" target="_blank" rel="noopener">ai-strategy.us/privacy/</a>.
+        By initiating this conversation, you confirm that you are 18 years of age or older and agree that interactions with Claire, AI Strategy US's virtual consultant, are for informational purposes only. Nothing discussed in this session constitutes a binding proposal, guaranteed outcome, or formal business agreement. AI Strategy US makes no guarantees of specific results. Information shared in this session may be used to follow up with you regarding our services. To review our full terms of service, visit <a href="https://ai-strategy.us/terms/" target="_blank" rel="noopener">ai-strategy.us/terms/</a>. To review our full privacy policy, visit <a href="https://ai-strategy.us/privacy/" target="_blank" rel="noopener">ai-strategy.us/privacy/</a>.
       </p>
     </div>
 
