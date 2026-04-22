@@ -875,6 +875,20 @@
     .consent-item label a:hover { color: var(--gold); }
  
     
+    #convai-wrapper {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 300;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    @media (max-width: 768px) {
+      #convai-wrapper {
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+ 
     
     footer {
       background: var(--dark);
@@ -1385,20 +1399,6 @@
     <elevenlabs-convai agent-id="agent_5901kprxzqb5e81arx2k1pp4w1dr"></elevenlabs-convai>
   </div>
   <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
-  <style>
-    #convai-wrapper {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 300;
-    }
-    @media (max-width: 768px) {
-      #convai-wrapper {
-        bottom: 16px;
-        right: 16px;
-      }
-    }
-  </style>
  
   
   <script>
@@ -1408,6 +1408,47 @@
  
     const GOOGLE_WEBAPP_URL = 'https://ai-strategy-form-main.aistrategyus.workers.dev/';
     const CALENDAR_URL = 'https://ai-strategy.us/schedule/';
+ 
+    (function () {
+      var wrapper = document.getElementById('convai-wrapper');
+      var lastScrollY = window.scrollY;
+      var scrollTimer = null;
+      var isHovering = false;
+
+      function setVisible(visible) {
+        wrapper.style.opacity = visible ? '1' : '0';
+        wrapper.style.transform = visible ? 'scale(1)' : 'scale(0.85)';
+        wrapper.style.pointerEvents = visible ? 'auto' : 'none';
+      }
+
+      function onScroll() {
+        if (isHovering) return;
+        var currentY = window.scrollY;
+        var scrollingDown = currentY > lastScrollY;
+        lastScrollY = currentY;
+
+        if (scrollingDown && currentY > 300) {
+          setVisible(false);
+        } else {
+          setVisible(true);
+        }
+
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function () {
+          setVisible(true);
+        }, 1200);
+      }
+
+      wrapper.addEventListener('mouseenter', function () {
+        isHovering = true;
+        setVisible(true);
+      });
+      wrapper.addEventListener('mouseleave', function () {
+        isHovering = false;
+      });
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
  
     const form           = document.getElementById('contact-form');
     const statusEl       = document.getElementById('form-status');
@@ -1581,53 +1622,6 @@
     function isValidEmail(v) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
     }
-
-    (function () {
-      const wrapper = document.getElementById('convai-wrapper');
-      let lastScrollY = window.scrollY;
-      let scrollTimer = null;
-      let isHovering = false;
-
-      function setVisible(visible) {
-        wrapper.style.opacity = visible ? '1' : '0';
-        wrapper.style.transform = visible ? 'scale(1)' : 'scale(0.85)';
-        wrapper.style.pointerEvents = visible ? 'auto' : 'none';
-      }
-
-      function onScroll() {
-        if (isHovering) return;
-        const currentY = window.scrollY;
-        const scrollingDown = currentY > lastScrollY;
-        lastScrollY = currentY;
-
-        if (scrollingDown && currentY > 300) {
-          setVisible(false);
-        } else {
-          setVisible(true);
-        }
-
-        clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(function () {
-          setVisible(true);
-        }, 1200);
-      }
-
-      wrapper.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-      wrapper.style.opacity = '1';
-      wrapper.style.transform = 'scale(1)';
-      wrapper.style.pointerEvents = 'auto';
-
-      wrapper.addEventListener('mouseenter', function () {
-        isHovering = true;
-        setVisible(true);
-      });
-
-      wrapper.addEventListener('mouseleave', function () {
-        isHovering = false;
-      });
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-    })();
   </script>
  
 </body>
