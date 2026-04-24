@@ -1368,8 +1368,8 @@
       wrapper.style.opacity = '1';
       wrapper.style.pointerEvents = 'auto';
 
-      // Scroll widget into view
-      wrapper.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    // Scroll to contact section
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
       // Try to trigger the widget's open button via shadow DOM
       setTimeout(function () {
