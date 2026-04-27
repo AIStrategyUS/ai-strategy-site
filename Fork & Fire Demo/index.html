@@ -359,9 +359,10 @@
     }
 
     elevenlabs-convai {
-      width: 100%;
-      display: flex;
-      justify-content: center;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
     }
 
     /* ── DISCLAIMER ── */
@@ -550,9 +551,7 @@
           <strong>Fork & Fire — Oro Valley Smokehouse + Taproom</strong>
           11835 N Oracle Rd #101 · Oro Valley, AZ 85737
         </div>
-        <elevenlabs-convai agent-id="agent_3001kq83d07qf4rbgwkf4jfstz3k"></elevenlabs-convai>
-        <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
-        <p style="font-size:12px; color: var(--muted); text-align:center; font-family: 'DM Mono', monospace;">Click the widget above to begin · Voice or text supported</p>
+        <p style="font-size:12px; color: var(--muted); text-align:center; font-family: 'DM Mono', monospace;">The agent widget is fixed to the bottom-right corner of your screen · Click it to begin</p>
       </div>
     </section>
 
@@ -577,5 +576,10 @@
     </footer>
 
   </div>
+
+  <!-- ELEVENLABS WIDGET - fixed bottom right -->
+  <elevenlabs-convai agent-id="agent_3001kq83d07qf4rbgwkf4jfstz3k"></elevenlabs-convai>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
 </body>
 </html>
