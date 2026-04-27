@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fork & Fire | AI Agent Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --fire-red: #C0392B;
+      --ember: #E85D04;
+      --gold: #F48C06;
+      --smoke: #1a1a1a;
+      --ash: #2d2d2d;
+      --char: #111111;
+      --light: #F5F0E8;
+      --muted: #9a9080;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--char);
+      color: var(--light);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* BACKGROUND TEXTURE */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(232, 93, 4, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(192, 57, 43, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* GRAIN OVERLAY */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 48px 0 0;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232, 93, 4, 0.12);
+      border: 1px solid rgba(232, 93, 4, 0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ember);
+      box-shadow: 0 0 6px var(--ember);
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .logo-lockup {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 8vw, 86px);
+      letter-spacing: 0.03em;
+      line-height: 0.9;
+      color: var(--light);
+    }
+
+    h1 span {
+      color: var(--ember);
+    }
+
+    .sub-headline {
+      font-size: 15px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 40px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(232,93,4,0.4), transparent);
+      margin: 40px 0;
+    }
+
+    /* ── INTRO SECTION ── */
+    .intro {
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+
+    .intro p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(245, 240, 232, 0.75);
+      max-width: 640px;
+    }
+
+    .intro p + p {
+      margin-top: 16px;
+    }
+
+    .intro strong {
+      color: var(--light);
+      font-weight: 500;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: 20px;
+    }
+
+    .how-it-works {
+      animation: fadeUp 0.8s 0.25s ease both;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2px;
+      margin-top: 4px;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 24px;
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .step:hover {
+      background: rgba(232, 93, 4, 0.06);
+    }
+
+    .step-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      color: rgba(232, 93, 4, 0.2);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .step h3 {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── TEST SCENARIOS ── */
+    .test-section {
+      animation: fadeUp 0.8s 0.35s ease both;
+    }
+
+    .scenarios {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 4px;
+    }
+
+    .scenario {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 18px 22px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .scenario:hover {
+      background: rgba(232, 93, 4, 0.05);
+      border-color: rgba(232, 93, 4, 0.2);
+    }
+
+    .scenario-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .scenario-content h4 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--light);
+      margin-bottom: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .scenario-content p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .say-this {
+      display: inline-block;
+      margin-top: 6px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--gold);
+      background: rgba(244, 140, 6, 0.08);
+      border: 1px solid rgba(244, 140, 6, 0.2);
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    /* ── LIMITATIONS ── */
+    .limitations {
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+
+    .limit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2px;
+      margin-top: 4px;
+    }
+
+    .limit-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 18px 20px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .limit-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(192, 57, 43, 0.6);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .limit-item p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .limit-item strong {
+      display: block;
+      color: rgba(245, 240, 232, 0.6);
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── WIDGET SECTION ── */
+    .widget-section {
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+
+    .widget-container {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(232, 93, 4, 0.2);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .widget-container::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ember), var(--gold), var(--ember), transparent);
+    }
+
+    .widget-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .widget-label strong {
+      display: block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.08em;
+      color: var(--light);
+      margin-bottom: 4px;
+    }
+
+    elevenlabs-convai {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer {
+      background: rgba(192, 57, 43, 0.05);
+      border: 1px solid rgba(192, 57, 43, 0.15);
+      padding: 20px 24px;
+      animation: fadeUp 0.8s 0.5s ease both;
+    }
+
+    .disclaimer p {
+      font-size: 12px;
+      color: rgba(154, 144, 128, 0.8);
+      line-height: 1.65;
+    }
+
+    .disclaimer p + p {
+      margin-top: 8px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: fadeUp 0.8s 0.55s ease both;
+    }
+
+    .footer-brand {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-brand a {
+      color: var(--ember);
+      text-decoration: none;
+    }
+
+    .footer-brand a:hover {
+      color: var(--gold);
+    }
+
+    .footer-contact {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .steps { grid-template-columns: 1fr; }
+      .limit-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-contact { text-align: center; }
+      .widget-container { padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header>
+      <div class="badge">Private Demo — AI Strategy US LLC</div>
+      <h1>Fork <span>&</span> Fire<br>AI Agent</h1>
+      <p class="sub-headline">Conversational Voice Ordering Demo · Oro Valley + Catalina</p>
+    </header>
+
+    <div class="divider"></div>
+
+    <!-- INTRO -->
+    <section class="intro" style="margin-bottom: 48px;">
+      <p class="section-label">What This Is</p>
+      <p>This is a <strong>private demo</strong> built for Fork & Fire ownership to experience what an optimized AI voice ordering agent looks and feels like in practice. The agent below is configured for the <strong>Oro Valley Smokehouse + Taproom location</strong> and has full knowledge of your menu, hours, specials, and both locations.</p>
+      <p>This demo is designed to show the <strong>conversational capability</strong> of the agent — how naturally it handles ordering, location transfers, and customer requests. It does not include phone intake or POS integration. Those would be part of a full implementation.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" style="margin-bottom: 48px;">
+      <p class="section-label">How It Works</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Start the Conversation</h3>
+          <p>Click the widget below and begin speaking or typing. The agent will greet you as if you called the Oro Valley location.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Place an Order</h3>
+          <p>Ask about the menu, place an order for pickup or dine-in, or inquire about reservations. The agent knows your full menu.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Test the Logic</h3>
+          <p>Try transferring to the Catalina location or asking for a real person. The agent will hand off cleanly to the appropriate agent.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- TEST SCENARIOS -->
+    <section class="test-section" style="margin-bottom: 48px;">
+      <p class="section-label">Things to Try</p>
+      <div class="scenarios">
+        <div class="scenario">
+          <div class="scenario-icon">🍖</div>
+          <div class="scenario-content">
+            <h4>Place a Standard Order</h4>
+            <p>Order a sandwich, plate, or any menu item and see how the agent handles the full ordering flow — including sides, add-ons, and payment.</p>
+            <span class="say-this">"I'd like the pulled pork sandwich for pickup"</span>
+          </div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-icon">📍</div>
+          <div class="scenario-content">
+            <h4>Transfer to Catalina Location</h4>
+            <p>Tell the agent you meant to call the Catalina location and watch it hand off cleanly to the Catalina Grill agent.</p>
+            <span class="say-this">"Actually, I meant to call the Catalina location"</span>
+          </div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-icon">👤</div>
+          <div class="scenario-content">
+            <h4>Request a Real Person</h4>
+            <p>At any point, ask to speak with a team member and the agent will confirm and transfer you to the human fallback agent.</p>
+            <span class="say-this">"Can I speak to a real person?"</span>
+          </div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-icon">🗓️</div>
+          <div class="scenario-content">
+            <h4>Make a Reservation</h4>
+            <p>Ask about making a reservation and see how the agent collects party size, date, and time — something the current Toast agent doesn't handle.</p>
+            <span class="say-this">"I'd like to make a reservation for Saturday"</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- LIMITATIONS -->
+    <section class="limitations" style="margin-bottom: 48px;">
+      <p class="section-label">Demo Scope & Limitations</p>
+      <div class="limit-grid">
+        <div class="limit-item">
+          <div class="limit-dot"></div>
+          <p><strong>No Phone Intake</strong>This demo runs via web widget. A full implementation would handle inbound phone calls directly.</p>
+        </div>
+        <div class="limit-item">
+          <div class="limit-dot"></div>
+          <p><strong>No POS Integration</strong>Orders are not sent to your kitchen or Toast system. This demonstrates the conversation layer only.</p>
+        </div>
+        <div class="limit-item">
+          <div class="limit-dot"></div>
+          <p><strong>No Payment Processing</strong>The agent will simulate the payment link flow but no actual transactions are processed.</p>
+        </div>
+        <div class="limit-item">
+          <div class="limit-dot"></div>
+          <p><strong>Conversation Only</strong>This is purpose-built to show how the agent converses, handles your menu, and manages handoffs.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- WIDGET -->
+    <section class="widget-section" style="margin-bottom: 32px;">
+      <p class="section-label">Live Demo Agent</p>
+      <div class="widget-container">
+        <div class="widget-label">
+          <strong>Fork & Fire — Oro Valley Smokehouse + Taproom</strong>
+          11835 N Oracle Rd #101 · Oro Valley, AZ 85737
+        </div>
+        <elevenlabs-convai agent-id="agent_3001kq83d07qf4rbgwkf4jfstz3k"></elevenlabs-convai>
+        <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+        <p style="font-size:12px; color: var(--muted); text-align:center; font-family: 'DM Mono', monospace;">Click the widget above to begin · Voice or text supported</p>
+      </div>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <section class="disclaimer" style="margin-bottom: 48px;">
+      <p>This voice agent demo has been created by AI Strategy US LLC for evaluation purposes only and is being shared exclusively with Fork & Fire ownership for review.</p>
+      <p>Interactions with this demo may be recorded and transcribed through Eleven Labs' platform as part of standard system functionality. No actual orders will be placed and no payments will be processed during this demonstration. All menu information has been sourced directly from Fork & Fire's published menus and is subject to change.</p>
+      <p>For questions about this demo, contact: <strong>AI Strategy US LLC · ai-strategy.us</strong></p>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="divider"></div>
+    <footer>
+      <div class="footer-brand">
+        Built by <a href="https://ai-strategy.us" target="_blank">AI Strategy US LLC</a><br>
+        <span style="opacity:0.5;">ai-strategy.us</span>
+      </div>
+      <div class="footer-contact">
+        Fork & Fire Oro Valley · (520) 222-6762<br>
+        Fork & Fire Catalina · (520) 800-4748
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
