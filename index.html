@@ -311,45 +311,7 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
     }
 
-    /* ============ ACTIVITY TICKER ============ */
-    .activity-ticker {
-      position: fixed;
-      bottom: 24px; left: 24px;
-      z-index: 90;
-      background: rgba(14, 21, 37, 0.9);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--line);
-      border-radius: 100px;
-      padding: 10px 16px 10px 12px;
-      display: flex; align-items: center; gap: 10px;
-      font-size: 12px;
-      color: var(--ink-dim);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s, transform 0.5s;
-      max-width: 300px;
-      pointer-events: none;
-    }
-    .activity-ticker.show { opacity: 1; transform: translateY(0); }
-    .activity-ticker .pulse {
-      width: 7px; height: 7px;
-      background: var(--green);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--green);
-      animation: tickPulse 1.5s infinite;
-      flex-shrink: 0;
-    }
-    @keyframes tickPulse {
-      0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
-    }
-    .activity-ticker strong { color: var(--ink); font-weight: 600; font-size: 12px; }
-    .activity-ticker .time {
-      color: var(--ink-dimmer);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      margin-left: 3px;
-    }
+
 
     /* ============ DATA STREAM DIVIDER ============ */
     .data-stream {
@@ -1647,14 +1609,7 @@
   <div class="cursor-glow" id="cursorGlow"></div>
   <div class="cursor-dot" id="cursorDot"></div>
 
-  <!-- Activity ticker -->
-  <div class="activity-ticker" id="activityTicker">
-    <span class="pulse"></span>
-    <div>
-      <strong id="tickerBiz">Law firm in Nashville</strong>
-      <span id="tickerTime" class="time">just now</span>
-    </div>
-  </div>
+
 
   <!-- ============ NAV ============ -->
   <nav aria-label="Main navigation">
@@ -2230,7 +2185,6 @@
         if (cg) cg.classList.add('active');
         if (cd) cd.classList.add('active');
         if (sp) sp.classList.add('active');
-        startActivityTicker();
       }, 200);
     }, 4700);
 
@@ -2352,44 +2306,6 @@
         stream.appendChild(p);
       }
     });
-
-    // ============ ACTIVITY TICKER ============
-    const activities = [
-      { biz: 'Law firm in Nashville', time: 'just now' },
-      { biz: 'HVAC company in Phoenix', time: '2m ago' },
-      { biz: 'Dental practice in Austin', time: '4m ago' },
-      { biz: 'Real estate brokerage in Tampa', time: '7m ago' },
-      { biz: 'E-commerce store in Denver', time: '11m ago' },
-      { biz: 'Accounting firm in Charlotte', time: '14m ago' },
-      { biz: 'Plumbing company in Dallas', time: '18m ago' },
-      { biz: 'Marketing agency in Atlanta', time: '22m ago' },
-      { biz: 'Veterinary clinic in Memphis', time: '26m ago' },
-      { biz: 'Consulting firm in Chicago', time: '31m ago' },
-    ];
-    let actIdx = 0;
-    const ticker    = document.getElementById('activityTicker');
-    const tickerBiz = document.getElementById('tickerBiz');
-    const tickerTime = document.getElementById('tickerTime');
-
-    function showActivity() {
-      if (!ticker) return;
-      const a = activities[actIdx % activities.length];
-      ticker.classList.remove('show');
-      setTimeout(() => {
-        if (tickerBiz)  tickerBiz.textContent  = a.biz;
-        if (tickerTime) tickerTime.textContent = a.time;
-        ticker.classList.add('show');
-        setTimeout(() => ticker.classList.remove('show'), 4500);
-      }, 400);
-      actIdx++;
-    }
-
-    function startActivityTicker() {
-      setTimeout(() => {
-        showActivity();
-        setInterval(showActivity, 7000);
-      }, 2500);
-    }
 
     // ============ TIER 1 CHAT BUTTON ============
     const tier1ChatBtn = document.getElementById('tier1-chat-btn');
